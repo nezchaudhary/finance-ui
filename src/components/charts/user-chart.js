@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class UserPortfolio extends Component {
 
   createChartData() {
+    console.log('portfolio', this.props.portfolio);
     const values = Object.values(this.props.portfolio);
     const total = values.reduce((total, value) => total + value, 0);
     const percentages = values.map(value => Math.round((value/total) * 100));
