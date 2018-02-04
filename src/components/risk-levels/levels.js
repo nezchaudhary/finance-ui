@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LevelDetail from './level-detail';
-import './style.css';
+import './risk-levels.css';
 
 class Levels extends Component {
 
@@ -20,17 +20,14 @@ class Levels extends Component {
     return (
       <div>
         <h4>What is your risk tolerance?</h4>
+        <span>Conservative</span>
         {this.renderLevels()}
+        <span>High Risk</span>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    levels: state.levels,
-    currentLevel: state.selectedLevel
-  }
-}
+const mapStateToProps = (state) => ( { levels: state.levels } );
 
 export default connect(mapStateToProps)(Levels);
