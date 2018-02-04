@@ -25,7 +25,8 @@ class IdealPortfolio extends Component {
     let renderChart = this.props.level > 0;
     if (renderChart) {
       const data = this.createChartData();
-      return ( <div> <Doughnut data={data} /> </div> );
+      const headline = <div>Ideal portfolio for risk level - {this.props.level} </div>
+      return ( <div> {headline} <Doughnut data={data} /> </div> );
     }
     return null;
   }

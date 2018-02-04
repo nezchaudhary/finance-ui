@@ -22,7 +22,8 @@ class UserPortfolio extends Component {
 
   render() {
     const data = this.createChartData();
-    return ( <div> <Doughnut data={data} /> </div> );
+    const headline = <div>Your Portfolio</div>
+    return ( <div> {headline} <Doughnut data={data} /> </div> );
   }
 }
 
