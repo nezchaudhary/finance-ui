@@ -1,10 +1,12 @@
-// Function constructor for each portfolio
-const Portfolio = (cash, bonds, mutualFunds, gold, stocks) => {
-  this.cash = cash;
-  this.bond = bonds;
-  this.mutualFunds = mutualFunds;
-  this.gold = gold;
-  this.stocks = stocks;
+// Class constructor for each portfolio
+class Portfolio {
+  constructor(cash, bonds, mutualFunds, gold, stocks) {
+    this.cash = cash;
+    this.bond = bonds;
+    this.mutualFunds = mutualFunds;
+    this.gold = gold;
+    this.stocks = stocks;
+  }
 }
 
 // Percentage values for portfolios at risk levels as keys
