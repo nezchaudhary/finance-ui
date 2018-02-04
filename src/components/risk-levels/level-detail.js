@@ -25,16 +25,6 @@ class LevelDetail extends Component {
   }
 };
 
-// anything returned form this function will end up as props on the container
-const mapStateToProps = (state) => {
-  return {
-    selectedLevel: state.selectedLevel
-  }
-}
-
-// whenever change level is called, result is passed to all of our reducers.
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ changeLevel: ChangeLevel }, dispatch);
-}
-
+const mapStateToProps = (state) => ( { selectedLevel: state.selectedLevel }) ;
+const mapDispatchToProps = (dispatch) => bindActionCreators({ changeLevel: ChangeLevel }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(LevelDetail);
