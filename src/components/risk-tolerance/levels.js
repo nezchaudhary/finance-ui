@@ -18,9 +18,7 @@ class Levels extends Component {
   render() {
     return (
       <div>
-      <form>
         {this.renderLevels()}
-      </form>
       </div>
     )
   }

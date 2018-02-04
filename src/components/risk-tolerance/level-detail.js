@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 
 class LevelDetail extends Component {
 
+  updateSelectedLevel() {
+    this.props.changeLevel(this.props.level);
+  }
+
   render() {
     return (
       <label>
@@ -12,8 +16,8 @@ class LevelDetail extends Component {
           type="radio"
           value={this.props.level}
           name="tolerance-level"
-          onChange={() => this.props.changeLevel(this.props.level)}
-          checked={false}
+          onChange={this.updateSelectedLevel.bind(this)}
+          checked={this.props.level === this.props.selectedLevel}
         />
         {this.props.level}
       </label>
@@ -21,12 +25,16 @@ class LevelDetail extends Component {
   }
 };
 
-// anything returned form this function will end up as props on the BookList container
-function mapDispatchToProps(dispatch) {
-  // whenever select book is called, result is passed to all of our reducers.
+// anything returned form this function will end up as props on the container
+const mapStateToProps = (state) => {
+  return {
+    selectedLevel: state.selectedLevel
+  }
+}
+
+// whenever change level is called, result is passed to all of our reducers.
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ changeLevel: ChangeLevel }, dispatch);
 }
 
-//Promote BookList from a component to a container, needs to know about the dispatch method, selectBook.
-// Make it available as a prop 
-export default connect(null, mapDispatchToProps)(LevelDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(LevelDetail);
