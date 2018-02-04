@@ -23,6 +23,14 @@ class UserPortfolioForm extends Component {
     this.setState({ [input]: e.target.value })
   }
 
+  checkInputTotal(values) {
+    let total = 0;
+    for (let type in values) {
+      total += values[type];
+    }
+    return total;
+  }
+
   handleSubmit() {
     const values = Object.values(this.state);
     const payload = {
@@ -33,7 +41,7 @@ class UserPortfolioForm extends Component {
       Stocks: Number(values[4]) || 0,
     };
     this.props.updateUserPortfolio(payload);
-    this.props.submit();
+    this.props.submit(this.checkInputTotal(payload));
   }
 
   renderInputs() {
