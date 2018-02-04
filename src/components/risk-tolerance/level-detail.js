@@ -11,7 +11,7 @@ class LevelDetail extends Component {
 
   render() {
     return (
-      <label>
+      <label className="level">
         <input
           type="radio"
           value={this.props.level}

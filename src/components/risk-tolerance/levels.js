@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LevelDetail from './level-detail';
+import './style.css';
 
 class Levels extends Component {
 
@@ -18,6 +19,7 @@ class Levels extends Component {
   render() {
     return (
       <div>
+        <h4>What is your risk tolerance?</h4>
         {this.renderLevels()}
       </div>
     )
