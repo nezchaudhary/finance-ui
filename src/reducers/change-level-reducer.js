@@ -3,7 +3,6 @@ export default function (state = null, action) {
   switch (action.type) {
     case 'SELECTED_LEVEL':
       return action.payload;
-    default:
-      return 0;
   }
+  return state;
 }
