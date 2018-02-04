@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import InputField from './input-field';
+import { UpdateUserPortfolio } from '../../actions/user-portfolio-change';
+
 
 class UserPortfolioForm extends Component {
   constructor() {
     super();
     this.handleInput = this.handleInput.bind(this);
     this.state = {
-      cash: '$',
-      bonds: '$',
-      'mutual-funds': '$',
-      gold: '$',
-      stocks: '$'
+      cash: '',
+      bonds: '',
+      'mutual-funds': '',
+      gold: '',
+      stocks: ''
     }
   }
 
   handleInput(e) {
     const input = e.target.name;
     this.setState({ [input]: e.target.value })
-
   }
 
   handleSubmit() {
-    // handle user input hereå
+    const values = Object.values(this.state);
+    const payload = {
+      Cash: Number(values[0]) || 0,
+      Bonds: Number(values[1]) || 0,
+      'Mutual Funds': Number(values[2]) || 0,
+      Gold: Number(values[3]) || 0,
+      Stocks: Number(values[4]) || 0,
+    };
+    this.props.updateUserPortfolio(payload);
+    this.props.submit();
   }
 
   renderInputs() {
@@ -43,20 +54,18 @@ class UserPortfolioForm extends Component {
   render() {
     return (
       <div>
-        <div>Please state your investments in USD</div>
-        <form>
+        <div>Please tell us your investments in USD</div>
+        <div>
           {this.renderInputs()}
-          <button type="submit">Submit</button>
-        </form>
+          <button type="submit" onClick={this.handleSubmit.bind(this)}>Submit</button>
+        </div>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    level: state.selectedLevel
-  }
-}
 
-export default connect(mapStateToProps)(UserPortfolioForm);
+const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({ updateUserPortfolio: UpdateUserPortfolio }, dispatch)
+);
+export default connect(null, mapDispatchToProps)(UserPortfolioForm);
