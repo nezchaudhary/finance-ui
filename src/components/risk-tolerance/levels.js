@@ -28,7 +28,8 @@ class Levels extends Component {
 
 function mapStateToProps(state) {
   return {
-    levels: state.levels
+    levels: state.levels,
+    currentLevel: state.selectedLevel
   }
 }
 
