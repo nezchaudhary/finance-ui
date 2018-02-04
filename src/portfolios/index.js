@@ -2,7 +2,7 @@
 class Portfolio {
   constructor(cash, bonds, mutualFunds, gold, stocks) {
     this.cash = cash;
-    this.bond = bonds;
+    this.bonds = bonds;
     this.mutualFunds = mutualFunds;
     this.gold = gold;
     this.stocks = stocks;
