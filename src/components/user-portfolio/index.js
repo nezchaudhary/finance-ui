@@ -15,9 +15,7 @@ class UserPortfolioForm extends Component {
   }
 
   render() {
-
     let riskSelected = this.props.level > 0;
-
     if (riskSelected && !this.state.renderForm) {
       return (
         <div onClick={this.handleClickToRenderForm.bind(this)}>Compare with current portfolio..</div>

@@ -5,6 +5,7 @@ import InputField from './input-field';
 class UserPortfolioForm extends Component {
   constructor() {
     super();
+    this.handleInput = this.handleInput.bind(this);
     this.state = {
       cash: '$',
       bonds: '$',
@@ -12,6 +13,16 @@ class UserPortfolioForm extends Component {
       gold: '$',
       stocks: '$'
     }
+  }
+
+  handleInput(e) {
+    const input = e.target.name;
+    this.setState({ [input]: e.target.value })
+
+  }
+
+  handleSubmit() {
+    // handle user input hereå
   }
 
   renderInputs() {
@@ -22,17 +33,14 @@ class UserPortfolioForm extends Component {
           field={type}
           key={type}
           value={this.state[type]}
-          name={`${type}-value`}
+          name={`${type}`}
+          change={this.handleInput}
         />
       )
     });
   }
   
-  
-  
   render() {
-    // let inputs = this.renderInputs();
-    // console.log('inputs', inputs);
     return (
       <div>
         <div>Please state your investments in USD</div>
@@ -52,35 +60,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(UserPortfolioForm);
-
-// <div>
-//   <label>Cash:
-//               <input type="text" name="cash-value" placeholder="$0" value={this.state.cash} />
-//   </label>
-// </div>
-//   <div>
-//     <label>Bonds:
-//               <input type="text" name="bonds-value" placeholder="$0" value={this.state.bonds} />
-//     </label>
-//   </div>
-//   <div>
-//     <label>Mutual Funds:
-//               <input type="text" name="mutualFunds-value" placeholder="$0" value={this.state.mutualFunds} />
-//     </label>
-//   </div>
-//   <div>
-//     <label>Gold:
-//               <input type="text" name="gold-value" placeholder="$0" value={this.state.gold} />
-//     </label>
-//   </div>
-//   <div>
-//     <label>Stocks:
-//               <input type="text" name="stock-value" placeholder="$0" value={this.state.stocks} />
-//     </label>
-//   </div>
-
- // {inputs[0]}
-          // {inputs[1]}
-          // {inputs[2]}
-          // {inputs[3]}
-          // {inputs[4]}

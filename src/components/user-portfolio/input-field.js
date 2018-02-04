@@ -10,7 +10,7 @@ class InputField extends Component {
     return (
       <div>
         <label>{this.parseField()}
-          <input type="text" name={this.props.name} placeholder="$0" value={this.props.value} />
+          <input type="text" name={this.props.name} placeholder="$0" value={this.props.value} onChange={this.props.change} />
         </label>
       </div>     
     )
