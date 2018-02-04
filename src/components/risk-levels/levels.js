@@ -6,14 +6,8 @@ import './risk-levels.css';
 class Levels extends Component {
 
   renderLevels() {
-    return (
-      this.props.levels.map(level => (
-        <LevelDetail
-          key={level}
-          level={level} 
-        />
-      ))
-    );
+    const levels = this.props.levels.map(level => ( <LevelDetail key={level} level={level} /> ));
+    return levels;
   }
 
   render() {
@@ -29,5 +23,4 @@ class Levels extends Component {
 }
 
 const mapStateToProps = (state) => ( { levels: state.levels } );
-
 export default connect(mapStateToProps)(Levels);
