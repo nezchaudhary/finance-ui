@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import RiskToleranceLevels from './risk-tolerance/levels';
 
 class App extends Component {
   render() {
     return (
-      <div>Hello World</div>
+      <RiskToleranceLevels />
     );
   }
 }
