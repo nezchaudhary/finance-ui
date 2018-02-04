@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import LevelDetail from './level-detail';
 
 class Levels extends Component {
+
+  renderLevels() {
+    return (
+      this.props.levels.map(level => (
+        <LevelDetail
+          key={level}
+          level={level} 
+        />
+      ))
+    );
+  }
+
   render() {
     return (
       <div>
-        {this.props.levels.map(level => <span>{level}</span>)}
+      <form>
+        {this.renderLevels()}
+      </form>
       </div>
     )
   }
