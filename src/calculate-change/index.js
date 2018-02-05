@@ -105,6 +105,24 @@ const sortDifferencesByIncreaseAndDecrease = (differences) => {
   return { decrease, increase };
 }
 
+const parseAmount = (number) => {
+  // console.log('came here', number);
+  const value = number.toString();
+  let result = '';
+  let count = 0;
+  for (let i = value.length - 1; i >= 0; i--) {
+    if (count === 3) {
+      result = `${value[i]},${result}`;
+      count = 1;
+    } else {
+      result = `${value[i]}${result}`;
+      count++;
+    }
+  }
+  // console.log('result is', result);
+  return result;
+}
+
 // this function returns an array of strings that tells us how to adjust investments
 const shiftInvestments = (user, ideal) => {
   const differences = calculateDifferenceInDollars(user, ideal);
@@ -118,15 +136,15 @@ const shiftInvestments = (user, ideal) => {
     let maxDecrease = decrease[decrease.length - 1];
     let maxIncrease = increase[increase.length - 1];
     if (maxIncrease.value - Math.abs(maxDecrease.value) > 0) { // max increase is larger than max decrease
-      investmentsToMove.push(`Move $${Math.abs(maxDecrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${parseAmount(Math.abs(maxDecrease.value))} from ${maxDecrease.name} to ${maxIncrease.name}`);
       increase[increase.length - 1].value -= Math.abs(maxDecrease.value);
       decrease.pop();
     } else if (maxIncrease.value - Math.abs(maxDecrease.value) < 0) { // max decrease is larger than max increase
-      investmentsToMove.push(`Move $${maxIncrease.value} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${parseAmount(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
       decrease[decrease.length - 1].value += maxIncrease.value;
       increase.pop();
     } else { // decrease and increase are of same size
-      investmentsToMove.push(`Move $${maxIncrease.value} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${parseAmount(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
       increase.pop();
       decrease.pop();
     }
@@ -138,5 +156,6 @@ const shiftInvestments = (user, ideal) => {
 // console.log(shiftInvestments(userPortfolio2, ideal1));
 // console.log(shiftInvestments(userPortfolio3, ideal2));
 // console.log(shiftInvestments(userPortfolio4, ideal2));
+// console.log(parseAmount('4534245453435'));
 
 export { shiftInvestments, calculateSumOfAllInvestments, calculateIdealUserPortfolio };
