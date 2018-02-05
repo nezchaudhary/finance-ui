@@ -33,7 +33,7 @@ class IdealPortfolioChart extends Component {
       const data = this.createChartData();
       return ( 
         <div className="small-auto medium-6 cell"> 
-          <h5 className="center">Ideal portfolio for risk level - {this.props.level} </h5>
+          <h6 className="center">Ideal portfolio for risk level - {this.props.level} </h6>
           <Doughnut data={data} /> 
         </div> );
     }

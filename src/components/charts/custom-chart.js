@@ -33,7 +33,7 @@ class CustomPortfolioChart extends Component {
     const data = this.createChartData();
     return ( 
       <div className="small-auto medium-6 cell"> 
-        <h5 className="center">Your Portfolio</h5>
+        <h6 className="center">Your Portfolio</h6>
       <Doughnut data={data} /> 
     </div> );
   }
