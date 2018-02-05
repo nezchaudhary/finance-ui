@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
-import Portfolios from '../../mock-data/portfolio';
+import RiskLevelPortfolios from '../../mock-data/risk-level-portfolios';
 
 class IdealPortfolio extends Component {
 
   createChartData() {
-    const portfolio = Portfolios[this.props.level];
+    const portfolio = RiskLevelPortfolios[this.props.level];
     const values = Object.values(portfolio);
     const dataToRender = this.props.types.reduce((data, type, index) => {
       if (values[index]) {
