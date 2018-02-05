@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
-import Portfolios from '../../data/portfolio';
+import Portfolios from '../../mock-data/portfolio';
 
 class IdealPortfolio extends Component {
 
