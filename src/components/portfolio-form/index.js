@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserForm from './user-form.js';
 import UserChart from '../charts/user-chart';
+import './portfolio-form.css';
 
 class UserPortfolio extends Component {
   constructor() {
