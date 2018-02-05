@@ -23,27 +23,27 @@ class CustomPortfolio extends Component {
     this.setState({ renderChart: total !== 0, renderForm: false, noData: total === 0 });
   }
 
-  createFormContext(context) {
+  createFormContext(context, classes) {
     return (
-      <div onClick={this.handleClickToRenderForm.bind(this)}>
+      <div className={classes} onClick={this.handleClickToRenderForm.bind(this)}>
         {context}
       </div>
     )
   }
 
   createDataTypes() {
-    const compare = this.createFormContext('Compare with your current portfolio..');
+    const compare = this.createFormContext('Compare with your current portfolio..', 'button primary');
     const form = <PortfolioForm submit={this.handlePortfolioSubmit.bind(this)} />;
     const chart = (
       <div>
         <CustomChart />
-        {this.createFormContext('Change portfolio')}
+        {this.createFormContext('Change portfolio', 'clear button primary')}
       </div>
     );
     const noInput = (
       <div>
         <div>No investments found</div>
-        {this.createFormContext('Try Again?')}
+        {this.createFormContext('Try Again?', 'button primary')}
       </div>
     );
     const riskSelected = this.props.level > 0;

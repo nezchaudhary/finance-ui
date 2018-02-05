@@ -13,10 +13,10 @@ class App extends Component {
         <h2 className="company-name center">BrightPlan</h2>
         <RiskLevels />
         <div className="grid-x grid-margin-x">
-          <div className="small-12 medium-6 cell chart center">
+          <div className="small-12 medium-6 cell chart">
             <IdealPortfolio />
           </div>
-          <div className="small-12 medium-6 cell chart center">
+          <div className="small-12 medium-6 cell chart">
             <CustomPortfolio />
           </div>
         </div>
