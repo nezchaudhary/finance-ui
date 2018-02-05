@@ -8,10 +8,10 @@ class InputField extends Component {
 
   render() {
     return (
-      <div>
-        <label>{this.parseField()}
-          <input type="text" name={this.props.name} placeholder="$0" value={this.props.value} onChange={this.props.change} />
+      <div className="grid-x">
+        <label className="small-2 medium-2 large-2 offset-1 cell">{`${this.parseField()}:`}
         </label>
+          <input className="small-6 medium-6 large-6 offset-1" type="text" name={this.props.name} placeholder="$0" value={this.props.value} onChange={this.props.change} />
       </div>     
     )
   }
