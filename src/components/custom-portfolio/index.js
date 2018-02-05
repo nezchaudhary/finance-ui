@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import UserForm from './user-form.js';
+import PortfolioForm from './portfolio-form.js';
 import CustomChart from '../charts/custom-chart';
 import './portfolio-form.css';
 
@@ -33,7 +33,7 @@ class CustomPortfolio extends Component {
 
   createDataTypes() {
     const compare = this.createFormContext('Compare with your current portfolio..');
-    const form = <UserForm submit={this.handlePortfolioSubmit.bind(this)} />;
+    const form = <PortfolioForm submit={this.handlePortfolioSubmit.bind(this)} />;
     const chart = (
       <div>
         <CustomChart />
@@ -51,17 +51,20 @@ class CustomPortfolio extends Component {
   }
 
   render() {
+    let toRender;
     const { compare, form, chart, riskSelected, noInput } = this.createDataTypes();
     if (riskSelected && !this.state.renderForm && !this.state.renderChart && !this.state.noData) {
-      return compare;
+      toRender = compare;
     } else if (this.state.renderForm) {
-      return form;
+      toRender = form;
     } else if (this.state.renderChart) {
-      return chart;
+      toRender =  chart;
     } else if (this.state.noData) {
-      return noInput;
+      toRender = noInput;
+    } else {
+      toRender = null;
     }
-    return null;
+    return toRender ? <div className="small-12 medium-6 cell">{toRender}</div> : null;
   }
 }
 
