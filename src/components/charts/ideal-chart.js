@@ -8,15 +8,21 @@ class IdealPortfolio extends Component {
   createChartData() {
     const portfolio = Portfolios[this.props.level];
     const values = Object.values(portfolio);
-    const types = ['Cash', 'Bonds', 'Mutual Funds', 'Gold', 'Stocks']
-      .map((type, index) => `${type} - ${values[index]}%`);
-    
+    const dataToRender = this.props.types.reduce((data, type, index) => {
+      if (values[index]) {
+        data.labels.push(`${type.name} - ${values[index]}%`);
+        data.colors.push(type.color);
+        data.values.push(values[index]);
+      }
+      return data;
+    }, { labels: [], colors:[], values: [] });
+
     const chartData = {
       datasets:[{
-        data: values,
-        backgroundColor: ['red', 'blue', 'green', 'orange', 'yellow']
+        data: dataToRender.values,
+        backgroundColor: dataToRender.colors
       }],
-      labels: types
+      labels: dataToRender.labels
     };
   return chartData;
   }
@@ -32,5 +38,8 @@ class IdealPortfolio extends Component {
   }
 }
 
-const mapStateToProps = (state) => ( { level: state.selectedLevel } );
+const mapStateToProps = (state) => ({ 
+  level: state.selectedLevel, 
+  types: state.types 
+});
 export default connect(mapStateToProps)(IdealPortfolio);

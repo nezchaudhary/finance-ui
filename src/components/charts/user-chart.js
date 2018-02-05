@@ -5,18 +5,24 @@ import { connect } from 'react-redux';
 class UserPortfolio extends Component {
 
   createChartData() {
-    console.log('portfolio', this.props.portfolio);
     const values = Object.values(this.props.portfolio);
     const total = values.reduce((total, value) => total + value, 0);
     const percentages = values.map(value => Math.round((value/total) * 100));
-    const types = Object.keys(this.props.portfolio).map((type, index) => `${type} (${percentages[index]}%)`);
+    const dataToRender = this.props.types.reduce((data, type, index) => {
+      if (values[index]) {
+        data.labels.push(`${type.name} - $${values[index]} (${percentages[index]}%)`);
+        data.colors.push(type.color);
+        data.values.push(values[index]);
+      }
+      return data;
+    }, { labels: [], colors: [], values: [] });
 
     const chartData = {
       datasets: [{
-        data: percentages,
-        backgroundColor: ['red', 'blue', 'green', 'orange', 'yellow']
+        data: dataToRender.values,
+        backgroundColor: dataToRender.colors
       }],
-      labels: types
+      labels: dataToRender.labels
     };
     return chartData;
   }
@@ -28,5 +34,8 @@ class UserPortfolio extends Component {
   }
 }
 
-const mapStateToProps = (state) => ( { portfolio: state.userPortfolio } );
+const mapStateToProps = (state) => ({ 
+  portfolio: state.userPortfolio ,
+  types: state.types 
+});
 export default connect(mapStateToProps)(UserPortfolio);
