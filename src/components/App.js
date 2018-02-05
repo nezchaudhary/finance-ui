@@ -10,10 +10,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h2>BrightPlan</h2>
+        <h2 className="company-name center">BrightPlan</h2>
         <RiskLevels />
-        <IdealPortfolio />
-        <CustomPortfolio />
+        <div className="grid-x">
+          <IdealPortfolio />
+          <CustomPortfolio />
+        </div>
         <ComparePortfolios />
       </div>
     );
@@ -21,3 +23,7 @@ class App extends Component {
 }
 
 export default App;
+
+// small - 10 small - offset - 1 medium - 6 medium - offset - 3 large - 4 large - offset - 4 cell
+
+// small - 12 medium - 8 medium - offset - 2 large - 6 large - offset - 3 

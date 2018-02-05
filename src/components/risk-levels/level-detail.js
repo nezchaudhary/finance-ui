@@ -11,16 +11,18 @@ class LevelDetail extends Component {
 
   render() {
     return (
-      <label className="level">
-        <input
-          type="radio"
-          value={this.props.level}
-          name="tolerance-level"
-          onChange={this.updateSelectedLevel.bind(this)}
-          checked={this.props.level === this.props.selectedLevel}
-        />
-        {this.props.level}
-      </label>
+      <span className="small-1 medium-1 large-1 cell center">
+        <label htmlFor={`risk-level-${this.props.level}`}>
+          <input
+            type="radio"
+            value={this.props.level}
+            name={`risk-level-${this.props.level}`}
+            onChange={this.updateSelectedLevel.bind(this)}
+            checked={this.props.level === this.props.selectedLevel}
+          />
+          {this.props.level}
+        </label>
+      </span>
     );
   }
 };

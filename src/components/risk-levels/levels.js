@@ -12,11 +12,13 @@ class Levels extends Component {
 
   render() {
     return (
-      <div>
-        <h4>What is your risk tolerance?</h4>
-        <span>Conservative</span>
-        {this.renderLevels()}
-        <span>High Risk</span>
+      <div className="risk-levels-main">
+        <h4 className="risk-levels-title center">What is your risk tolerance?</h4>
+        <div className="grid-x">
+          <span className="small-1 medium-1 large-1 cell center">Low</span>
+          {this.renderLevels()}
+          <span className="small-1 medium-1 large-1 cell center">High</span>
+        </div>
       </div>
     )
   }
@@ -24,3 +26,5 @@ class Levels extends Component {
 
 const mapStateToProps = (state) => ( { levels: state.levels } );
 export default connect(mapStateToProps)(Levels);
+
+// "small-10 small-offset-1 medium-6 medium-offset-3 large-4 large-offest-4 cell 
