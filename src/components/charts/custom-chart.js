@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 
-class UserPortfolio extends Component {
+import { calculateSumOfAllInvestments } from '../../calculate-change/index';
+
+class CustomPortfolioChart extends Component {
 
   createChartData() {
     const values = Object.values(this.props.portfolio);
-    const total = values.reduce((total, value) => total + value, 0);
+    const total = calculateSumOfAllInvestments(this.props.portfolio);
     const percentages = values.map(value => Math.round((value/total) * 100));
     const dataToRender = this.props.types.reduce((data, type, index) => {
       if (values[index]) {
@@ -38,4 +40,4 @@ const mapStateToProps = (state) => ({
   portfolio: state.userPortfolio ,
   types: state.types 
 });
-export default connect(mapStateToProps)(UserPortfolio);
+export default connect(mapStateToProps)(CustomPortfolioChart);

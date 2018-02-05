@@ -3,7 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import RiskLevelPortfolios from '../../mock-data/risk-level-portfolios';
 
-class IdealPortfolio extends Component {
+class IdealPortfolioChart extends Component {
 
   createChartData() {
     const portfolio = RiskLevelPortfolios[this.props.level];
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => ({
   level: state.selectedLevel, 
   types: state.types 
 });
-export default connect(mapStateToProps)(IdealPortfolio);
+export default connect(mapStateToProps)(IdealPortfolioChart);
