@@ -32,14 +32,11 @@ class UserPortfolioForm extends Component {
   }
 
   handleSubmit() {
-    const values = Object.values(this.state);
-    const payload = {
-      Cash: Number(values[0]) || 0,
-      Bonds: Number(values[1]) || 0,
-      'Mutual Funds': Number(values[2]) || 0,
-      Gold: Number(values[3]) || 0,
-      Stocks: Number(values[4]) || 0,
-    };
+    const payload = {};
+    for (let type in this.state) {
+      payload[type] = Number(this.state[type]) || 0;
+    }
+
     this.props.updateUserPortfolio(payload);
     this.props.submit(this.checkInputTotal(payload));
   }
@@ -71,7 +68,6 @@ class UserPortfolioForm extends Component {
     )
   }
 }
-
 
 const mapDispatchToProps = (dispatch) => (
   bindActionCreators({ updateUserPortfolio: UpdateUserPortfolio }, dispatch)
