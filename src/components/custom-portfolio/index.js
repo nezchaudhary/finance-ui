@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import UserForm from './user-form.js';
-import UserChart from '../charts/user-chart';
+import CustomChart from '../charts/custom-chart';
 import './portfolio-form.css';
 
-class UserPortfolio extends Component {
+class CustomPortfolio extends Component {
   constructor() {
     super()
     this.state = {
@@ -35,7 +36,7 @@ class UserPortfolio extends Component {
     const form = <UserForm submit={this.handlePortfolioSubmit.bind(this)} />;
     const chart = (
       <div>
-        <UserChart />
+        <CustomChart />
         {this.createFormContext('Change portfolio')}
       </div>
     );
@@ -65,4 +66,4 @@ class UserPortfolio extends Component {
 }
 
 const mapStateToProps = (state) => ( { level: state.selectedLevel } );
-export default connect(mapStateToProps)(UserPortfolio);
+export default connect(mapStateToProps)(CustomPortfolio);

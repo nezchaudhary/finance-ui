@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import InputField from './input-field';
 import { UpdateUserPortfolio } from '../../actions/user-portfolio-change';
+import { calculateSumOfAllInvestments } from '../../calculate-change/index';
 
 
 class UserPortfolioForm extends Component {
@@ -22,15 +24,7 @@ class UserPortfolioForm extends Component {
     const input = e.target.name;
     this.setState({ [input]: e.target.value })
   }
-
-  checkInputTotal(values) {
-    let total = 0;
-    for (let type in values) {
-      total += values[type];
-    }
-    return total;
-  }
-
+  
   handleSubmit() {
     const payload = {};
     for (let type in this.state) {
@@ -38,7 +32,7 @@ class UserPortfolioForm extends Component {
     }
 
     this.props.updateUserPortfolio(payload);
-    this.props.submit(this.checkInputTotal(payload));
+    this.props.submit(calculateSumOfAllInvestments(payload));
   }
 
   renderInputs() {
