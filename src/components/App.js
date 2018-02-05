@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
 import RiskLevels from './risk-levels/levels';
 import IdealPortfolio from './charts/ideal-chart';
-import UserPortfolio from './portfolio-form/index';
+import CustomPortfolio from './custom-portfolio/index';
+import ComparePortfolios from './compare-portfolios/index';
 import './app.css';
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
         <h2>BrightPlan</h2>
         <RiskLevels />
         <IdealPortfolio />
-        <UserPortfolio />
+        <CustomPortfolio />
+        <ComparePortfolios />
       </div>
     );
   }
