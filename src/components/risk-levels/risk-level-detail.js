@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { changeLevel } from '../../actions/level-change';
+import { updateRiskLevel } from '../../actions/update-risk-level';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -29,5 +29,5 @@ class LevelDetail extends Component {
 };
 
 const mapStateToProps = (state) => ( { selectedLevel: state.selectedLevel }) ;
-const mapDispatchToProps = (dispatch) => bindActionCreators({ changeLevel: changeLevel }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ changeLevel: updateRiskLevel }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(LevelDetail);

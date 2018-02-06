@@ -13,13 +13,28 @@ Read the application and execution summary [here](https://github.com/nehacp/fina
 
 Watch a demo of the app [here]()
 
+To use the application, you need to download the repository as a zip file or fork it to your own account and clone as a git repository. 
+
+### Dependencies
+
+- "chart.js": "^2.7.1",
+- "react": "^16.2.0",
+- "react-chartjs-2": "^2.7.0",
+- "react-dom": "^16.2.0",
+- "react-redux": "^5.0.6",
+- "react-scripts": "1.1.0",
+- "redux": "^3.7.2"
+
 ## Scripts
 
-### To start application
+### To install dependencies
 
-You need to download the repository as a zip file or fork it to your own account and clone as a git repository. Go into the repository root folder in the terminal. To install all the dependencies, run the command:
+Once you download/clone the application to your local computer, go into the repository root folder in the terminal. To install all the dependencies, run the command:
 
 `npm install`
+
+
+### To start application
 
 After all the dependencies are installed, you need to run:
 

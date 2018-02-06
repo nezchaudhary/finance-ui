@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import InputField from './input-field';
-import { updateUserPortfolio } from '../../actions/user-portfolio-change';
+import { updateCustomPortfolio } from '../../actions/update-custom-portfolio';
 import getPortfolioSize from '../../utility/portfolio-size.js';
 
 
@@ -31,7 +31,7 @@ class UserPortfolioForm extends Component {
       payload[type] = Number(this.state[type]) || 0;
     }
 
-    this.props.updateUserPortfolio(payload);
+    this.props.updateCustomPortfolio(payload);
     this.props.submit(getPortfolioSize(payload));
   }
 
