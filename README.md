@@ -3,7 +3,7 @@
 
 This application displays a doughnut chart for different level-risk portfolios and custom portfolios. You can compare custom portfolios to the risk portfolio. It will tell you how to adjust investments to match the risk portfolio.
 
-![alt text](https://github.com/nehacp/finance-ui/blob/master/finance-ui-image.pngg "Finance-UI")
+![alt text](https://github.com/nehacp/finance-ui/blob/master/finance-ui-image.png "Finance-UI")
 
 ## Scripts
 
