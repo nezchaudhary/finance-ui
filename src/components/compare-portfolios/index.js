@@ -15,9 +15,9 @@ class ComparePortfolios extends Component {
       if (changes.length) {
         return (
           <div className="auto cell">
-            <h5>
-              To match your current portfolio to the risk portfolio, you would need to..
-            </h5>
+            <h6>
+              To match your portfolio to the risk portfolio, you need to..
+            </h6>
             {changes.map((change, i) => <div className="auto cell" key={i}>{change}</div>)}
           </div>
         );

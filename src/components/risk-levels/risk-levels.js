@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LevelDetail from './level-detail';
+import LevelDetail from './risk-level-detail';
 import './risk-levels.css';
 
 class Levels extends Component {
@@ -13,7 +13,7 @@ class Levels extends Component {
   render() {
     return (
       <div className="risk-levels-main">
-        <h4 className="risk-levels-title center">Select Your Risk Tolerance</h4>
+        <h5 className="risk-levels-title center">Select Your Risk Tolerance</h5>
         <div className="grid-x grid-padding-x">
           <div className="small-12 medium-8 medium-offset-2 large-8 large-offset-2 cell">
             <div className="grid-x">

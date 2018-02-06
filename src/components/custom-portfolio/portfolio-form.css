@@ -56,7 +56,8 @@ h5 {
 
 .change-button {
   position: relative;
-  left: 34%;
+  left: 32.7%;
+  font-weight: bold;
 }
 
 /* .try-again-text {
@@ -83,6 +84,6 @@ h5 {
   }
 
   .change-button {
-    left: 33%
+    left: 33.2%;
   }
 }

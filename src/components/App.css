@@ -31,6 +31,10 @@ h5 {
   margin-bottom: 0%;
 }
 
+h6 {
+  font-weight: bold;
+}
+
 .custom {
   margin-top: 6%;
 }

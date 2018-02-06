@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import RiskLevels from './risk-levels/levels';
+import RiskLevels from './risk-levels/risk-levels';
 import IdealPortfolio from './charts/ideal-chart';
 import CustomPortfolio from './custom-portfolio/index';
 import ComparePortfolios from './compare-portfolios/index';
