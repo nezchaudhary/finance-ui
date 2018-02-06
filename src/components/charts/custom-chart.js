@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 
-import { calculateSumOfAllInvestments, parseDollars } from '../../calculate-change/index';
+import getPortfolioSize from '../../utility/portfolio-size.js';
+import formatDollarString from '../../utility/format-dollar-string';
 
 class CustomPortfolioChart extends Component {
 
   createChartData() {
     const values = Object.values(this.props.portfolio);
-    const total = calculateSumOfAllInvestments(this.props.portfolio);
+    const total = getPortfolioSize(this.props.portfolio);
     const percentages = values.map(value => Math.round((value/total) * 100));
     const dataToRender = this.props.types.reduce((data, type, index) => {
       if (values[index]) {
-        data.labels.push(`${type.name} - $${parseDollars(values[index])} (${percentages[index]}%)`);
+        data.labels.push(`${type.name} - $${formatDollarString(values[index])} (${percentages[index]}%)`);
         data.colors.push(type.color);
         data.values.push(values[index]);
       }

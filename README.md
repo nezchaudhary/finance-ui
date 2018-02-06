@@ -3,13 +3,21 @@
 
 This application displays a doughnut chart for different level-risk portfolios and custom portfolios. You can compare custom portfolios to the risk portfolio. It will tell you how to adjust investments to match the risk portfolio.
 
-![alt text](https://github.com/nehacp/finance-ui/blob/master/finance-ui-image.png "Finance-UI")
+![finance-ui](https://github.com/nehacp/finance-ui/blob/master/finance-ui-image.png "Finance-UI")
+
+### Execution Summary
+
+Read the execution summary [here](https://github.com/nehacp/finance-ui/blob/master/execution-Summary.md)
+
+### Video
+
+Watch a demo of the app, [here]()
 
 ## Scripts
 
 ### To start application
 
-You need to download the repo as a zip file or fork it and then create a git repository to your own account.  Go into the repo folder in the terminal. To install all the dependencies, run the command:
+You need to download the repository as a zip file or fork it to your own account and clone as a git repository. Go into the repository root folder in the terminal. To install all the dependencies, run the command:
 
 ### `npm install`
 
@@ -20,13 +28,19 @@ After all the dependencies are installed, you need to run:
 This will runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+
+### Build
+
 To create a production build, you need to run the command:
 
 ### `npm run build`
 
 This builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Files and Structure
+
+This repository contains a file under mock-data in the src folder that is used to render the risk level charts. It is meant for development use only.
+
+All CSS files are in their respective folders with the components.
+
 

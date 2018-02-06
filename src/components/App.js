@@ -4,7 +4,7 @@ import RiskLevels from './risk-levels/risk-levels';
 import IdealPortfolio from './charts/ideal-chart';
 import CustomPortfolio from './custom-portfolio/index';
 import ComparePortfolios from './compare-portfolios/index';
-import './app.css';
+import './App.css';
 
 class App extends Component {
   render() {

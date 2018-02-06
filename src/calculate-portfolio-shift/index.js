@@ -1,3 +1,8 @@
+
+import formatDollarString from '../utility/format-dollar-string';
+import getPortfolioSize from '../utility/portfolio-size.js';
+const types = ['Cash', 'Bonds', 'Mutual Funds', 'Gold', 'Stocks']; // Array of different types of investments
+
 /*
 
 // Input: Ideal portfolio based on risk in percentages, current user portfolio
@@ -21,29 +26,17 @@ Transformation:
   userP = [70, 46, 67, 87, 32]; // current user portfolio in dollar values
   userIdealP = [60, 15, 76, 45, 106]; // ideal user portfolio in dollar values
   difference = [-10, -31, 9, -42, 74] // difference between ideal and current
-  shrink = [-10, -31, -42]; increase = [9, 74]; // divide in 2 arrays to adjust and sort them
-  shrink = [-10, -31]; increase = [9, 32]; // start popping values that have been adjusted
-  shrink = [-10]; increase = [9, 1];
-  shrink = [-9]; increase = [9];
-  shrink = []; increase = [];
+  decrease = [-10, -31, -42]; increase = [9, 74]; // divide in 2 arrays to adjust and sort them
+  decrease = [-10, -31]; increase = [9, 32]; // start popping values that have been adjusted
+  decrease = [-10]; increase = [9, 1];
+  decrease = [-9]; increase = [9];
+  decrease = []; increase = [];
 */
-
-
-const types = ['Cash', 'Bonds', 'Mutual Funds', 'Gold', 'Stocks']; // Array of different types of investments
-
-// this function returns the total size of user's portfolio
-const calculateSumOfAllInvestments = (portfolio) => {
-  let total = 0;
-  for (let type in portfolio) {
-    total += portfolio[type];
-  }
-  return total;
-}
 
 // this function returns the user's ideal portfolio based on the size
 const calculateIdealUserPortfolio = (userPortfolio, riskPortfolio) => {
   const idealPortfolioPercentages = Object.values(riskPortfolio);
-  const userPortfolioSize = calculateSumOfAllInvestments(userPortfolio);
+  const userPortfolioSize = getPortfolioSize(userPortfolio);
   let sumOfValues = 0;
   return idealPortfolioPercentages.map((percent, i) =>  {
     let value;
@@ -71,8 +64,8 @@ const calculateDifferenceInDollars = (userPortfolio, riskPortfolio) => {
   return differences;
 };
 
+// Divide differences into investments that need to increase and decrease
 const sortDifferencesByIncreaseAndDecrease = (differences) => {
-  // Divide differences into investments that need to increase and decrease
   const sorted = differences.sort((a, b) => a.value - b.value);
   let decreaseEnd;
   let increaseStart;
@@ -95,24 +88,8 @@ const sortDifferencesByIncreaseAndDecrease = (differences) => {
   return { decrease, increase };
 }
 
-const parseDollars = (number) => {
-  const value = number.toString();
-  let result = '';
-  let count = 0;
-  for (let i = value.length - 1; i >= 0; i--) {
-    if (count === 3) {
-      result = `${value[i]},${result}`;
-      count = 1;
-    } else {
-      result = `${value[i]}${result}`;
-      count++;
-    }
-  }
-  return result;
-}
-
 // this function returns an array of strings that tells us how to adjust investments
-const shiftInvestments = (user, ideal) => {
+const calculateHowToMoveInvestments = (user, ideal) => {
   const differences = calculateDifferenceInDollars(user, ideal);
   const { increase, decrease } = sortDifferencesByIncreaseAndDecrease(differences);
   const investmentsToMove = []; // Array to push string values of investments to move
@@ -122,15 +99,15 @@ const shiftInvestments = (user, ideal) => {
     let maxDecrease = decrease[decrease.length - 1];
     let maxIncrease = increase[increase.length - 1];
     if (maxIncrease.value - Math.abs(maxDecrease.value) > 0) { // max increase is larger than max decrease
-      investmentsToMove.push(`Move $${parseDollars(Math.abs(maxDecrease.value))} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${formatDollarString(Math.abs(maxDecrease.value))} from ${maxDecrease.name} to ${maxIncrease.name}`);
       increase[increase.length - 1].value -= Math.abs(maxDecrease.value);
       decrease.pop();
     } else if (maxIncrease.value - Math.abs(maxDecrease.value) < 0) { // max decrease is larger than max increase
-      investmentsToMove.push(`Move $${parseDollars(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${formatDollarString(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
       decrease[decrease.length - 1].value += maxIncrease.value;
       increase.pop();
     } else { // decrease and increase are of same size
-      investmentsToMove.push(`Move $${parseDollars(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${formatDollarString(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
       increase.pop();
       decrease.pop();
     }
@@ -138,4 +115,9 @@ const shiftInvestments = (user, ideal) => {
   return investmentsToMove;
 };
 
-export { shiftInvestments, calculateSumOfAllInvestments, calculateIdealUserPortfolio, parseDollars };
+export { 
+  calculateHowToMoveInvestments, 
+  calculateIdealUserPortfolio, 
+  calculateDifferenceInDollars, 
+  sortDifferencesByIncreaseAndDecrease 
+};

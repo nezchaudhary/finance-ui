@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import InputField from './input-field';
-import { UpdateUserPortfolio } from '../../actions/user-portfolio-change';
-import { calculateSumOfAllInvestments } from '../../calculate-change/index';
+import { updateUserPortfolio } from '../../actions/user-portfolio-change';
+import getPortfolioSize from '../../utility/portfolio-size.js';
 
 
 class UserPortfolioForm extends Component {
@@ -32,7 +32,7 @@ class UserPortfolioForm extends Component {
     }
 
     this.props.updateUserPortfolio(payload);
-    this.props.submit(calculateSumOfAllInvestments(payload));
+    this.props.submit(getPortfolioSize(payload));
   }
 
   renderInputs() {
@@ -64,6 +64,6 @@ class UserPortfolioForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => (
-  bindActionCreators({ updateUserPortfolio: UpdateUserPortfolio }, dispatch)
+  bindActionCreators({ updateUserPortfolio: updateUserPortfolio }, dispatch)
 );
 export default connect(null, mapDispatchToProps)(UserPortfolioForm);

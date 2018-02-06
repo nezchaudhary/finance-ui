@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { shiftInvestments, calculateSumOfAllInvestments } from '../../calculate-change/index';
+import { calculateHowToMoveInvestments } from '../../calculate-portfolio-shift/index';
+import getPortfolioSize from '../../utility/portfolio-size.js';
 import RiskPortfolios from '../../mock-data/risk-level-portfolios';
 
 class ComparePortfolios extends Component {
   render() {
     const renderChanges = this.props.portfolio !== null;
     if (renderChanges) {
-      const total = calculateSumOfAllInvestments(this.props.portfolio);
+      const total = getPortfolioSize(this.props.portfolio);
       if (!total) return null;
-      const changes = shiftInvestments(this.props.portfolio, RiskPortfolios[this.props.riskLevel]);
+      const changes = calculateHowToMoveInvestments(this.props.portfolio, RiskPortfolios[this.props.riskLevel]);
       if (changes.length) {
         return (
           <div className="auto cell">
