@@ -10,9 +10,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h2 className="company-name center">BrightPlan</h2>
+        <h2 className="company-name"><span className="bright-color">Bright</span><span className="plan-color">Plan</span></h2>
         <RiskLevels />
-        <div className="grid-x grid-margin-x">
+        <div className="grid-x grid-padding-x">
           <div className="small-12 medium-6 cell chart">
             <IdealPortfolio />
           </div>
@@ -20,7 +20,7 @@ class App extends Component {
             <CustomPortfolio />
           </div>
         </div>
-        <div className="grid-x grid-margin-x">
+        <div className="grid-x center">
           <ComparePortfolios />
         </div>
       </div>

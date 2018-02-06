@@ -1,3 +1,25 @@
-.center-text {
-  top: 50%;
+.form-label {
+  font-weight: bold;
+  font-size: 15px;
+  color: #5195cc;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+.change-portfolio {
+  font-weight: bold;
+}
+
+.form-input {
+  color: #5195cc;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.form-input:focus {
+  border-color: #5195cc;
 }

@@ -105,7 +105,7 @@ const sortDifferencesByIncreaseAndDecrease = (differences) => {
   return { decrease, increase };
 }
 
-const parseAmount = (number) => {
+const parseDollars = (number) => {
   // console.log('came here', number);
   const value = number.toString();
   let result = '';
@@ -136,15 +136,15 @@ const shiftInvestments = (user, ideal) => {
     let maxDecrease = decrease[decrease.length - 1];
     let maxIncrease = increase[increase.length - 1];
     if (maxIncrease.value - Math.abs(maxDecrease.value) > 0) { // max increase is larger than max decrease
-      investmentsToMove.push(`Move $${parseAmount(Math.abs(maxDecrease.value))} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${parseDollars(Math.abs(maxDecrease.value))} from ${maxDecrease.name} to ${maxIncrease.name}`);
       increase[increase.length - 1].value -= Math.abs(maxDecrease.value);
       decrease.pop();
     } else if (maxIncrease.value - Math.abs(maxDecrease.value) < 0) { // max decrease is larger than max increase
-      investmentsToMove.push(`Move $${parseAmount(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${parseDollars(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
       decrease[decrease.length - 1].value += maxIncrease.value;
       increase.pop();
     } else { // decrease and increase are of same size
-      investmentsToMove.push(`Move $${parseAmount(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(`Move $${parseDollars(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
       increase.pop();
       decrease.pop();
     }
@@ -158,4 +158,4 @@ const shiftInvestments = (user, ideal) => {
 // console.log(shiftInvestments(userPortfolio4, ideal2));
 // console.log(parseAmount('4534245453435'));
 
-export { shiftInvestments, calculateSumOfAllInvestments, calculateIdealUserPortfolio };
+export { shiftInvestments, calculateSumOfAllInvestments, calculateIdealUserPortfolio, parseDollars };

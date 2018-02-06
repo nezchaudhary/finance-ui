@@ -37,13 +37,13 @@ class CustomPortfolio extends Component {
     const chart = (
       <div>
         <CustomChart />
-        {this.createFormContext('Change portfolio', 'clear button primary')}
+        {this.createFormContext('Change portfolio', 'clear button primary change-portfolio')}
       </div>
     );
     const noInput = (
       <div>
-        <div>No investments found</div>
-        {this.createFormContext('Try Again?', 'button primary')}
+        <div className="text-bold">No investments found</div>
+        {this.createFormContext('Try Again', 'button primary')}
       </div>
     );
     const riskSelected = this.props.level > 0;
@@ -64,7 +64,7 @@ class CustomPortfolio extends Component {
     } else {
       toRender = null;
     }
-    return toRender ? <div className="small-12 medium-6 cell">{toRender}</div> : null;
+    return toRender;
   }
 }
 

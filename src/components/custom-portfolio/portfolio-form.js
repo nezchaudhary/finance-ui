@@ -53,10 +53,10 @@ class UserPortfolioForm extends Component {
   render() {
     return (
       <div>
-        <h6>Please tell us your investments in USD</h6>
+        <h5 className="center">Please tell us your investments in USD</h5>
         {this.renderInputs()}
         <div className="grid-x">
-          <button className="button primary small-6 small-offset-3 medium-6 medium-offset-3 cell" type="submit" onClick={this.handleSubmit.bind(this)}>Show My Portfolio</button>
+          <button className="small-6 small-offest-4 medium-6 medium-offset-4 cell button expand form-button" type="submit" onClick={this.handleSubmit.bind(this)}>Show My Portfolio</button>
         </div>
       </div>
     )
