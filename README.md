@@ -7,11 +7,11 @@ This application displays a doughnut chart for different level-risk portfolios a
 
 ### Execution Summary
 
-Read the execution summary [here](https://github.com/nehacp/finance-ui/blob/master/execution-Summary.md)
+Read the execution summary [here](https://github.com/nehacp/finance-ui/blob/master/execution-summary.md)
 
 ### Video
 
-Watch a demo of the app, [here]()
+Watch a demo of the app [here]()
 
 ## Scripts
 
@@ -19,11 +19,11 @@ Watch a demo of the app, [here]()
 
 You need to download the repository as a zip file or fork it to your own account and clone as a git repository. Go into the repository root folder in the terminal. To install all the dependencies, run the command:
 
-### `npm install`
+`npm install`
 
 After all the dependencies are installed, you need to run:
 
-### `npm start`
+`npm start`
 
 This will runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -33,7 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 To create a production build, you need to run the command:
 
-### `npm run build`
+`npm run build`
 
 This builds the app for production to the `build` folder.<br>
 
