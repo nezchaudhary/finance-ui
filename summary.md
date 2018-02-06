@@ -7,7 +7,7 @@
 - Currency: USD only.
 - Web Accessibility: Not ARIA compliant.
 - No network usage so no network related error checking. Strictly UI.
-- No persistance of data. Inputs have to be re-submitted if browser was closed or a button was clicked.
+- No persistance of data or routing. Inputs have to be re-submitted if browser was closed or a button was clicked.
 - No routing urls. Back/Forward button cannot be used. 
 - Investment Types: Stocks, Bonds, Cash, Gold and Mutual Funds only.
 - Risk Portfolios are hard-coded mock-data.
@@ -23,7 +23,7 @@
 About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as I needed to familiarize myself with Foundation CSS.
 
 ### Break-up
-- 2 hours to setup repository, create risk level components and implement application state with redux
+- 2 hours to setup repository, create risk level components and implement application state with redux.
 - 10 mins to create mock-data.
 - 1 hour to render ideal chart.
 - 1 hour 20 mins to create form component.
