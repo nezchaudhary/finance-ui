@@ -1,4 +1,4 @@
-### Application Summary
+## Application Summary
 
 - Chart Visualizations: Percentage format.
 - Browser support: Mainly focused on Chrome.
