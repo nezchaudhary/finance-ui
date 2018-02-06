@@ -37,7 +37,7 @@ About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as
 
 ### Possible Optimizations
 
-- Change radio buttons to a scroll-bar or drop-down menu. Radio buttons are inefficient for small devices especially since all 12 columns are used for responsive layout.
+- Change radio buttons to a scroll-bar or drop-down menu. Radio buttons are inefficient for small devices especially since all 12 columns are used for responsive layout. Right now, '10' is a problem as you reduce size.
 
 - Use React-Router to route to different pages for different features. Right now you cannot go back or forward.
 
@@ -45,7 +45,7 @@ About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as
 
 - Move compare portfolio button below the risk level chart on initial select so a larger chart is visible.
 
-- Handle situation where portfolio was submitted and rendered, then change portfolio was clicked which rendered the form), followed by risk level change. As of now, the form stays as is, but ideally, the form should disappear and the previous portfolio chart should re-render.
+- Handle a situation where portfolio was submitted and rendered, then change portfolio was clicked which re-rendered the form. As of now, the old portfolio suggested-change data stays on screen. That should go away.
 
 - Add Testing.
 
