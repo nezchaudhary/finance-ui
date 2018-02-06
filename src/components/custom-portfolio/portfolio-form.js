@@ -64,6 +64,6 @@ class UserPortfolioForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => (
-  bindActionCreators({ updateUserPortfolio: updateUserPortfolio }, dispatch)
+  bindActionCreators({ updateCustomPortfolio: updateCustomPortfolio }, dispatch)
 );
 export default connect(null, mapDispatchToProps)(UserPortfolioForm);
