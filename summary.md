@@ -1,8 +1,29 @@
-## Project Execution Summary
-I spent about 8.5 hours completing the project excluding CSS and about 4 hours on CSS since I had to familiarize myself with Foundation CSS.
+### Application Summary
+
+- Chart Visualizations: Percentage format.
+- Browser support: Mainly focused on Chrome.
+- UI Responsive based on device used.
+- Language: English only.
+- Currency: USD only.
+- Web Accessibility: Not ARIA compliant.
+- No network usage so no network related error checking. Strictly UI.
+- No persistance of data. Inputs have to be re-submitted if browser was closed.
+- No routing urls. Back/Forward button cannot be used. 
+- Investment Types: Stocks, Bonds, Cash, Gold and Mutual Funds only.
+- Risk Portfolios are hard-coded mock-data.
+-  No Testing due to time constraint.
+
+### Expected Inputs
+
+- Risk Tolerance: Integers between 1-10 (inclusive and no floating points). 
+- Integers only (No floating points).
+
+
+##  Execution Summary
+About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as I needed to familiarize myself with Foundation CSS.
 
 ### Break-up
-- 2 hours to setup repo, create risk level components and implement application state with redux
+- 2 hours to setup repository, create risk level components and implement application state with redux
 - 10 mins to create mock-data.
 - 1 hour to render ideal chart.
 - 1 hour 20 mins to create form component.
@@ -26,4 +47,5 @@ I spent about 8.5 hours completing the project excluding CSS and about 4 hours o
 
 - Handle situation where portfolio was submitted and rendered, then change portfolio was clicked which rendered the form), followed by risk level change. Right now the form remains but ideally, the form should disappear and portfolio chart should re-render.
 
-- Testing.
+- Add Testing.
+

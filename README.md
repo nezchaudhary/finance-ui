@@ -5,9 +5,9 @@ This application displays a doughnut chart for different level-risk portfolios a
 
 ![finance-ui](https://github.com/nehacp/finance-ui/blob/master/finance-ui-image.png "Finance-UI")
 
-### Execution Summary
+### Application and Execution Summary
 
-Read the execution summary [here](https://github.com/nehacp/finance-ui/blob/master/execution-summary.md)
+Read the application and execution summary [here](https://github.com/nehacp/finance-ui/blob/master/summary.md)
 
 ### Video
 
@@ -29,18 +29,11 @@ This will runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-### Build
-
-To create a production build, you need to run the command:
-
-`npm run build`
-
-This builds the app for production to the `build` folder.<br>
-
 ## Files and Structure
 
 This repository contains a file under mock-data in the src folder that is used to render the risk level charts. It is meant for development use only.
 
 All CSS files are in their respective folders with the components.
+
 
 
