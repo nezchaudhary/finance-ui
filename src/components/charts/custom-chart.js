@@ -34,7 +34,7 @@ class CustomPortfolioChart extends Component {
     return ( 
       <div> 
         <h5 className="center">Your Portfolio</h5>
-      <Doughnut data={data} /> 
+      <Doughnut data={data} options={{cutoutPercentage: 40}} /> 
     </div> );
   }
 }

@@ -23,3 +23,16 @@ h5 {
 .form-input:focus {
   border-color: #5195cc;
 }
+
+.form-button {
+  position:relative;
+  left:26%;
+  background-color:  #5195cc;
+}
+
+@media(min-width: 40em) {
+  .form-button {
+    position:relative;
+    left:29%;
+  }
+}
