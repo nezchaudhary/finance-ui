@@ -1,7 +1,9 @@
 
 ## Finance UI 
 
-This application displays a doughnut chart for different level-risk portfolios and custom portfolios.. You can compare custom portfolios to the risk portfolio. It will tell you how to adjust investments to match the risk portfolio.
+This application displays a doughnut chart for different level-risk portfolios and custom portfolios. You can compare custom portfolios to the risk portfolio. It will tell you how to adjust investments to match the risk portfolio.
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Finance-UI")
 
 ## Scripts
 
