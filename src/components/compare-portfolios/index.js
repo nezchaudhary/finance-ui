@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { shiftInvestments, calculateSumOfAllInvestments } from '../../calculate-change/index';
 import RiskPortfolios from '../../mock-data/risk-level-portfolios';
-// import './compare-portfolios.css';
 
 class ComparePortfolios extends Component {
   render() {

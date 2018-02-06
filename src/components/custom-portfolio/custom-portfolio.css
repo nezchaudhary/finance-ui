@@ -20,6 +20,10 @@ h5 {
   color: #5195cc;
 }
 
+.form-heading {
+  margin-bottom: 1.5%;
+}
+
 .text-bold {
   font-weight: bold;
 }
@@ -60,11 +64,6 @@ h5 {
   font-weight: bold;
 }
 
-/* .try-again-text {
-  position: relative;
-  left: 30%
-} */
-
 @media(min-width: 40em) {
   .form-button {
     left:29%;
@@ -75,7 +74,6 @@ h5 {
   }
 
   .try-again-button {
-    /* left: 9.5%; */
     margin-left:1.7%
   }
 

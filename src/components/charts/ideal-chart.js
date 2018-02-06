@@ -34,7 +34,7 @@ class IdealPortfolioChart extends Component {
       return ( 
         <div className="small-auto medium-auto large-4 cell"> 
           <h5 className="center"> Risk Level {this.props.level} Portfolio</h5>
-          <Doughnut data={data} options={{cutoutPercentage: 40}} /> 
+          <Doughnut data={data} options={{ cutoutPercentage: 40 }} /> 
         </div> );
     }
     return null;
