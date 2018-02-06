@@ -14,7 +14,7 @@ class Levels extends Component {
     return (
       <div className="risk-levels-main">
         <h4 className="risk-levels-title center">Select Your Risk Tolerance</h4>
-        <div className="grid-x">
+        <div className="grid-x grid-padding-x">
           <div className="small-12 medium-8 medium-offset-2 large-8 large-offset-2 cell">
             <div className="grid-x">
               <span className="small-1 medium-1 large-1 cell center risk-type">Low</span>

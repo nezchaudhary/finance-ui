@@ -4,6 +4,10 @@
   color: #5195cc;
 }
 
+.button {
+  background-color: #5195cc;
+}
+
 h5 {
   font-weight: bold;
 }
@@ -27,12 +31,58 @@ h5 {
 .form-button {
   position:relative;
   left:26%;
-  background-color:  #5195cc;
 }
+
+.compare-button {
+  position:relative;
+  left:25%;
+}
+
+.compare-button-wrapper {
+  position: relative;
+}
+
+.try-again-button {
+  /* position: relative; */
+  margin-top: 5px;
+  /* left: 8%; */
+  margin-left: 7.5%;
+}
+
+.try-again-container {
+  position: relative;
+  left: 30%;
+}
+
+.change-button {
+  position: relative;
+  left: 34%;
+}
+
+/* .try-again-text {
+  position: relative;
+  left: 30%
+} */
 
 @media(min-width: 40em) {
   .form-button {
-    position:relative;
     left:29%;
+  }
+
+  .compare-button-wrapper {
+    top: 46%;
+  }
+
+  .try-again-button {
+    /* left: 9.5%; */
+    margin-left:1.7%
+  }
+
+  .try-again-container {
+    top: 50%;
+  }
+
+  .change-button {
+    left: 33%
   }
 }

@@ -16,7 +16,7 @@ class App extends Component {
           <div className="small-12 medium-6 cell chart">
             <IdealPortfolio />
           </div>
-          <div className="small-12 medium-6 cell chart">
+          <div className="small-12 medium-6 cell chart custom">
             <CustomPortfolio />
           </div>
         </div>

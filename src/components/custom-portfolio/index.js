@@ -32,18 +32,28 @@ class CustomPortfolio extends Component {
   }
 
   createDataTypes() {
-    const compare = this.createFormContext('Compare with your current portfolio..', 'button primary');
+    const compare = (
+      <div className="grid-x compare-button-wrapper">
+        {this.createFormContext('Compare your portfolio', 'button small-6 medium-6 cell compare-button')};
+      </div>
+    );
     const form = <PortfolioForm submit={this.handlePortfolioSubmit.bind(this)} />;
     const chart = (
       <div>
         <CustomChart />
-        {this.createFormContext('Change portfolio', 'clear button primary change-portfolio')}
+        <div className="grid-x">
+          {this.createFormContext('Change portfolio', 'small-4 medium-4  large-4 clear button change-button')}
+        </div>
       </div>
     );
     const noInput = (
-      <div>
-        <div className="text-bold">No investments found</div>
-        {this.createFormContext('Try Again', 'button primary')}
+      <div className="try-again-container">
+        <div className="grid-x"> 
+          <div className="small-12 medium-12 large-12 cell grid-x"> 
+            <div className="text-bold">No Investments Found</div>
+          </div>
+          {this.createFormContext('Try Again', 'button small-3 medium-3 large-3 cell try-again-button')}
+        </div>
       </div>
     );
     const riskSelected = this.props.level > 0;
