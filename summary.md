@@ -41,7 +41,7 @@ About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as
 
 - Use React-Router to route to different pages for different features. Right now you cannot go back or forward.
 
-- Show chart labels separately because they reduce the size of the chart within the same box if the labels are too many. If there is a comparison, sometimes one chart becomes smaller than the other.
+- Create a separate component to render chart data because, as of now, it renders in the same box as the chart if we use the charting library. The problem arises when the labels are large or differ in number, they go on the next line and reduce the size of the chart. This causes one chart to look smaller than the other.
 
 - Move compare portfolio button below the risk level chart on initial select so a larger chart is visible.
 
