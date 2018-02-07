@@ -1,3 +1,6 @@
+// This is mock data to illustrate the 10 levels of risk portfolios
+// based on 5 investments. Its meant for development only
+
 // Class constructor for each portfolio
 class Portfolio {
   constructor(cash, bonds, mutualFunds, gold, stocks) {
