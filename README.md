@@ -7,11 +7,13 @@ This application displays a doughnut chart for different level-risk portfolios a
 
 ### Application and Execution Summary
 
+This project uses a ready-to-use React environment call create-react-app. The main reason for the choice was project deadline. The main focus was to add features, CSS and responsiveness.
+
 Read the application and execution summary [here](https://github.com/nehacp/finance-ui/blob/master/summary.md)
 
 ### Video
 
-Watch a demo of the app [here]()
+Watch a demo of the app [here](https://youtu.be/Ujybj5rCZuI)
 
 ### Instructions
 
@@ -47,9 +49,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Files and Structure
 
-This repository contains a file under mock-data in the src folder that is used to render the risk level charts. It is meant for development use only.
-
-All CSS files are in their respective folders with the components.
-
-
-
+- The entry point html file for the app is [index.html](https://github.com/nehacp/finance-ui/blob/master/public/index.html) in the public folder.
+- The entry point javascript file is [index.js](https://github.com/nehacp/finance-ui/blob/master/src/index.js) in the 'src' folder.
+- All of the components are under [src/components](https://github.com/nehacp/finance-ui/blob/master/src/components).
+- The CSS files for each component are in the same folder as the component.
+- The algorithm to calculate the change needed in the portfolio is [here](https://github.com/nehacp/finance-ui/blob/master/src/calculate-portfolio-shift/index.js).
+- The test suite is in the [__tests__](https://github.com/nehacp/finance-ui/blob/master/src/__tests__) folder in 'src'. It has a limited number of tests.
