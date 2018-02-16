@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <div>
         <h2 className="company-name">
-          <span className="bright-color">Bright</span>
-          <span className="plan-color">Plan</span>
+          <span className="bright-color">Investi</span>
+          <span className="plan-color">Me</span>
         </h2>
         <RiskLevels />
         <div className="grid-x grid-padding-x">
