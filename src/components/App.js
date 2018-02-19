@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import RiskLevels from './risk-levels/risk-levels';
-import RiskChart from './chart/chart';
+import DoughnutChart from './chart/chart';
 import CustomPortfolio from './custom-portfolio/index';
 import ComparePortfolios from './compare-portfolios/index';
+import Header from './main-header/header'
 import './App.css';
 
 class App extends Component {
@@ -14,12 +16,14 @@ class App extends Component {
           <span className="bright-color">Investi</span>
           <span className="plan-color">Me</span>
         </h2>
+          <Header />
         <RiskLevels />
         <div className="grid-x grid-padding-x">
-          <div className="small-12 medium-6 cell chart">
-            <RiskChart type="risk-level"/>
+          <div className="small-auto medium-auto cell chart">
+            <DoughnutChart type="risk-level"/>
           </div>
-          <div className="small-12 medium-6 cell chart custom">
+          
+          <div className="small-auto medium-auto cell chart custom">
             <CustomPortfolio />
           </div>
         </div>
@@ -31,4 +35,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({ selectedLevel: state.selectedLevel });
+export default connect(mapStateToProps)(App);
+
+/* div className="small-auto medium-auto cell chart">
+<DoughnutChart type="user-portfolios" />
+          </div >
+
+          */
