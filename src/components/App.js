@@ -5,7 +5,8 @@ import RiskLevels from './risk-levels/risk-levels';
 import DoughnutChart from './chart/chart';
 import CustomPortfolio from './custom-portfolio/index';
 import ComparePortfolios from './compare-portfolios/index';
-import Header from './main-header/header'
+import Header from './headers/header';
+
 import './App.css';
 
 class App extends Component {
@@ -16,13 +17,12 @@ class App extends Component {
           <span className="bright-color">Investi</span>
           <span className="plan-color">Me</span>
         </h2>
-          <Header />
+        <Header type="main"/>
         <RiskLevels />
         <div className="grid-x grid-padding-x">
           <div className="small-auto medium-auto cell chart">
             <DoughnutChart type="risk-level"/>
           </div>
-          
           <div className="small-auto medium-auto cell chart custom">
             <CustomPortfolio />
           </div>
@@ -35,7 +35,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ selectedLevel: state.selectedLevel });
+const mapStateToProps = (state) => ({ selectedLevel: state.selectedLevel, userPortFolio: state.userPortfolio });
 export default connect(mapStateToProps)(App);
 
 /* div className="small-auto medium-auto cell chart">

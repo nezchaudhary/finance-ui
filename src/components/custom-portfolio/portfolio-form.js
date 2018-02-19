@@ -28,7 +28,8 @@ class UserPortfolioForm extends Component {
   handleSubmit() {
     const payload = {};
     for (let type in this.state) {
-      payload[type] = Number(this.state[type]) || 0;
+      let amount = Number(this.state[type])
+      payload[type] = amount > 0 ? amount : 0;
     }
 
     this.props.updateCustomPortfolio(payload);

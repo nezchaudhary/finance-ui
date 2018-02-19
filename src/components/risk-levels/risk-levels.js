@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { updateRiskLevel } from '../../actions/update-risk-level';
 import { bindActionCreators } from 'redux';
 
-import Header from '../main-header/header';
+import Header from '../headers/header';
 import './risk-levels.css';
 
 class Levels extends Component {
@@ -19,12 +19,12 @@ class Levels extends Component {
         <div className="grid-x grid-padding-x">
           <div className="small-12 medium-8 medium-offset-2 large-8 large-offset-2 cell">
             <div className="grid-x">
-              <span className="small-1 medium-1 medium-offset-1 large-1 large-offset-1 cell center risk-type low">Low</span>
+              <span className="small-1 medium-1 medium-offset-1 large-1 large-offset-1 cell center risk-type low">1<div>Low</div></span>
               <div className="slide-container small-10 medium-8 large-8 cell">    
                 <input 
                   name="risk-range"
                   type="range" 
-                  min="0" 
+                  min="1" 
                   max="10"
                   value={this.props.selectedLevel || 0}
                   className="slider" 
@@ -32,12 +32,12 @@ class Levels extends Component {
                   onChange={this.updateSelectedLevel.bind(this)}
                 />
               </div>
-              <span className="small-1 medium-1 large-1 cell center risk-type high">High</span>
+              <span className="small-1 medium-1 large-1 cell center risk-type high">10<div>High</div></span>
             </div> 
           </div>
         </div>
         <div className="risk-level-header">
-          <Header header={`Risk Tolerance: ${this.props.selectedLevel || 0}`} />
+          <Header type="risk-level" header={`Risk Level: ${this.props.selectedLevel || 0}`} />
         </div>
       </div>
     )
