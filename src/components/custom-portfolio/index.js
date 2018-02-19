@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PortfolioForm from './portfolio-form.js';
-import CustomChart from '../charts/custom-chart';
+import UserChart from '../chart/chart';
 import './custom-portfolio.css';
 
 class CustomPortfolio extends Component {
@@ -40,7 +40,7 @@ class CustomPortfolio extends Component {
     const form = <PortfolioForm submit={this.handlePortfolioSubmit.bind(this)} />;
     const chart = (
       <div>
-        <CustomChart />
+        <UserChart type="user-portfolio"/>
         <div className="grid-x">
           {this.createFormContext('Change portfolio', 'small-4 medium-4  large-4 clear button change-button')}
         </div>

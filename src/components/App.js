@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import RiskLevels from './risk-levels/risk-levels';
-import IdealPortfolio from './charts/ideal-chart';
+import RiskChart from './chart/chart';
 import CustomPortfolio from './custom-portfolio/index';
 import ComparePortfolios from './compare-portfolios/index';
 import './App.css';
@@ -17,7 +17,7 @@ class App extends Component {
         <RiskLevels />
         <div className="grid-x grid-padding-x">
           <div className="small-12 medium-6 cell chart">
-            <IdealPortfolio />
+            <RiskChart type="risk-level"/>
           </div>
           <div className="small-12 medium-6 cell chart custom">
             <CustomPortfolio />
