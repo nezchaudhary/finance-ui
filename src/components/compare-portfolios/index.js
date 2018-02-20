@@ -17,8 +17,8 @@ class ComparePortfolios extends Component {
       const changes = calculateHowToMoveInvestments(this.props.portfolio, RiskPortfolios[this.props.riskLevel]);
       if (changes.length) {
         return (
-          <div className="center">
-            <Header type="compare" class="compare-header" header="To match your portfolio to the risk portfolio, you need to.." />
+          <div className="center portfolio-change-container">
+            <Header type="compare" class="portfolio-change-header" header="To match your portfolio to the risk portfolio, you need to.." />
             {changes.map((change, i) => (<div className="auto cell" key={i}>{`Move $${formatDollarString(change.value)} from ${change.from} to ${change.to}`}</div>))}
           </div>
         );

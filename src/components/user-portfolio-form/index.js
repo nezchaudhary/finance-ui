@@ -42,19 +42,14 @@ class CustomPortfolio extends Component {
       <div>
         <UserDoughnutChart type="user-portfolio"/>
         <div className="grid-x">
-          {this.createFormContext('Change portfolio', 'small-4 medium-4  large-4 clear button change-button')}
+          {this.createFormContext('Change portfolio', 'small-6 medium-4 large-4 clear button change-button')}
         </div>
       </div>
     );
     const noInput = (
-      <div className="try-again-container">
-        <div className="grid-x"> 
-          <div className="small-12 medium-12 large-12 cell grid-x"> 
-            <div className="text-bold">No Investments Found</div>
-          </div>
-          {this.createFormContext('Try Again', 'button small-3 medium-3 large-3 cell try-again-button')}
-        </div>
-      </div>
+        <div className="try-again-container">
+          {this.createFormContext('No Investments Found. Try Again', 'clear button try-again-button')} 
+        </div>  
     );
     const riskSelected = this.props.level > 0;
     return { compare, form, chart, riskSelected, noInput };
@@ -80,3 +75,5 @@ class CustomPortfolio extends Component {
 
 const mapStateToProps = (state) => ( { level: state.selectedLevel } );
 export default connect(mapStateToProps)(CustomPortfolio);
+// <div className="grid-x"> 
+          // <div className="small-12 medium-12 medium-offset-1 large-12 cell"> 

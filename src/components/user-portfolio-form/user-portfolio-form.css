@@ -55,13 +55,15 @@
 
 .try-again-container {
   position: relative;
-  left: 30%;
+  left: 15%;
+  font-weight: bold;
 }
 
 .change-button {
   position: relative;
-  left: 32.7%;
+  left: 25%;
   font-weight: bold;
+  font-size: 1em;
 }
 
 @media(min-width: 40em) {
@@ -74,10 +76,11 @@
   }
 
   .try-again-button {
-    margin-left:1.7%
+    margin-left:1.7%;
   }
 
   .try-again-container {
+    position: relative;
     top: 50%;
   }
 
