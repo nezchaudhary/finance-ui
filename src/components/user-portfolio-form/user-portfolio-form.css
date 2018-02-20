@@ -1,5 +1,4 @@
 .form-label {
-  /* padding-top: 0.5em; */
   font-weight: bold;
   font-size: 1em;
   color: #5195cc;
@@ -7,10 +6,6 @@
 
 .button {
   background-color: #5195cc;
-}
-
-.change-portfolio {
-  font-weight: bold;
 }
 
 .form-input {
@@ -37,7 +32,7 @@
   left:26%;
 }
 
-.compare-button {
+.button.compare-button {
   position:relative;
   left:25%;
 }
@@ -46,11 +41,11 @@
   position: relative;
 }
 
-.try-again-button {
-  /* position: relative; */
+.button.try-again-button {
   margin-top: 5px;
   /* left: 8%; */
-  margin-left: 7.5%;
+  margin: auto;
+  font-size: 1em;
 }
 
 .try-again-container {
@@ -67,16 +62,12 @@
 }
 
 @media(min-width: 40em) {
-  .form-button {
+  .button.form-button {
     left:29%;
   }
 
   .compare-button-wrapper {
     top: 46%;
-  }
-
-  .try-again-button {
-    margin-left:1.7%;
   }
 
   .try-again-container {
@@ -99,6 +90,18 @@
     height: 1.5em;
     font-size: 1em;
     padding-left: 0.2em;;
+  }
+
+  .button.compare-button {
+    width: 50%;
+    height: 40%;
+    font-size: 0.9em;
+  }
+
+  .button.form-button {
+    width: 50%;
+    height: 40%;
+    font-size: 0.9em;
   }
 
 }

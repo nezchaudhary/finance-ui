@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import InputField from './input-field';
 import { updateCustomPortfolio } from '../../actions/update-custom-portfolio';
 import getPortfolioSize from '../../utility/portfolio-size.js';
-
+import Button from '../button';
 
 class UserPortfolioForm extends Component {
   constructor() {
@@ -59,7 +59,12 @@ class UserPortfolioForm extends Component {
         <div className="form-header center">Please tell us your investments in USD</div>
         {this.renderInputs()}
         <div className="grid-x">
-          <button className="small-6 medium-6 cell button expand form-button" type="submit" onClick={this.handleSubmit.bind(this)}>Show My Portfolio</button>
+          <Button 
+            classes="small-6 medium-6 cell button expand form-button" 
+            type="button" 
+            click={this.handleSubmit.bind(this)}
+            text="Show My Portfolio" 
+          />
         </div>
       </div>
     )

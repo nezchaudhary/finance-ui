@@ -5,7 +5,7 @@ class ChartLegend extends Component {
   render() {
     return (
       <div className="grid-x grid-padding-x">
-        <div className="center" style={ { margin: 'auto' }}>
+        <div className="small-12 medium-8 large-8 center" style={ { margin: 'auto' }}>
           {this.props.data.labels.map((value, index) => {
             const style = { 'backgroundColor': `${this.props.data.colors[index]}` };
             return (

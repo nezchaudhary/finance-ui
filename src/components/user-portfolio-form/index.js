@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import PortfolioForm from './portfolio-form.js';
 import UserDoughnutChart from '../chart/chart';
+import Button from '../button';
 import './user-portfolio-form.css';
 
 class CustomPortfolio extends Component {
@@ -13,6 +14,8 @@ class CustomPortfolio extends Component {
       renderChart: false,
       noData: false,
     }
+    this.handleClickToRenderForm = this.handleClickToRenderForm.bind(this);
+    this.handlePortfolioSubmit = this.handlePortfolioSubmit.bind(this);
   }
 
   handleClickToRenderForm() {
@@ -23,57 +26,60 @@ class CustomPortfolio extends Component {
     this.setState({ renderChart: total !== 0, renderForm: false, noData: total === 0 });
   }
 
-  createFormContext(context, classes) {
-    return (
-      <div className={classes} onClick={this.handleClickToRenderForm.bind(this)}>
-        {context}
-      </div>
-    )
-  }
-
   createDataTypes() {
     const compare = (
       <div className="grid-x compare-button-wrapper">
-        {this.createFormContext('Compare your portfolio', 'button small-6 medium-6 cell compare-button')};
+        <Button 
+          classes="button small-6 medium-6 cell compare-button" 
+          text="Compare your portfolio"
+          click={this.handleClickToRenderForm} />
       </div>
     );
-    const form = <PortfolioForm submit={this.handlePortfolioSubmit.bind(this)} />;
+
+    const form = <PortfolioForm submit={this.handlePortfolioSubmit} />;
+    
     const chart = (
       <div>
         <UserDoughnutChart type="user-portfolio"/>
         <div className="grid-x">
-          {this.createFormContext('Change portfolio', 'small-6 medium-4 large-4 clear button change-button')}
+          <Button 
+            classes="small-6 medium-4 large-4 clear button change-button" 
+            text="Change portfolio"
+            click={this.handleClickToRenderForm}
+          />
         </div>
       </div>
     );
+    
     const noInput = (
-        <div className="try-again-container">
-          {this.createFormContext('No Investments Found. Try Again', 'clear button try-again-button')} 
-        </div>  
+      <div className="try-again-container">
+        <Button 
+          classes="clear button try-again-button" 
+          text="No Investments Found. Try Again"
+          click={this.handleClickToRenderForm} 
+        />
+      </div>  
     );
+    
     const riskSelected = this.props.level > 0;
+    
     return { compare, form, chart, riskSelected, noInput };
   }
 
   render() {
-    let toRender;
     const { compare, form, chart, riskSelected, noInput } = this.createDataTypes();
     if (riskSelected && !this.state.renderForm && !this.state.renderChart && !this.state.noData) {
-      toRender = compare;
+      return compare;
     } else if (this.state.renderForm) {
-      toRender = form;
+      return form;
     } else if (this.state.renderChart) {
-      toRender =  chart;
+      return chart;
     } else if (this.state.noData) {
-      toRender = noInput;
-    } else {
-      toRender = null;
-    }
-    return toRender;
+      return noInput;
+    } 
+    return null;
   }
 }
 
 const mapStateToProps = (state) => ( { level: state.selectedLevel } );
 export default connect(mapStateToProps)(CustomPortfolio);
-// <div className="grid-x"> 
-          // <div className="small-12 medium-12 medium-offset-1 large-12 cell"> 
