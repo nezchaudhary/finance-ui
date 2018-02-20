@@ -1,0 +1,16 @@
+.legend-main {
+  display: inline-block;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 40px;
+  height: 15px;
+  margin: 5px 0px 0px 8px;
+}
+
+
+.legend-data {
+  margin: 0px 0px 0px 3px;
+  font-size: 80%;
+}

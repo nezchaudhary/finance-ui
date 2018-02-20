@@ -20,7 +20,7 @@ class App extends Component {
         <Header type="main"/>
         <RiskLevels />
         <div className="grid-x grid-padding-x">
-          <div className="small-auto medium-auto cell chart">
+          <div className="small-auto medium-auto cell chart custom">
             <DoughnutChart type="risk-level"/>
           </div>
           <div className="small-auto medium-auto cell chart custom">
@@ -37,9 +37,3 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({ selectedLevel: state.selectedLevel, userPortFolio: state.userPortfolio });
 export default connect(mapStateToProps)(App);
-
-/* div className="small-auto medium-auto cell chart">
-<DoughnutChart type="user-portfolios" />
-          </div >
-
-          */

@@ -7,6 +7,8 @@ import getPortfolioSize from '../../utility/portfolio-size.js';
 import formatDollarString from '../../utility/format-dollar-string';
 import ChartLedger from './chart-ledger';
 
+import './chart.css';
+
 
 class DoughnutChart extends Component {
 
@@ -24,7 +26,7 @@ class DoughnutChart extends Component {
     let label;
     return this.props.types.reduce((data, type, index) => {
       label = portfolio ? `${type.name} - $${formatDollarString(portfolio[index])} (${percentages[index]}%)`
-        : `${type.name} - ${percentages[index]}%`;
+        : `${type.name} (${percentages[index]}%)`;
       if (percentages[index]) {
         data.labels.push(label);
         data.colors.push(type.color);
@@ -46,13 +48,13 @@ class DoughnutChart extends Component {
       const percentages = values.map(value => Math.round((value / total) * 100));
       chartData = this.createChartDataSet(percentages, values);
     }
-    return this.formatChartDataSet(chartData);
+    return chartData;
   }
 
   getHeader() {
     let header;
     if (this.props.type === 'risk-level') {
-      header = `Risk ${this.props.selectedLevel} Portfolio`;
+      header = `Risk Portfolio`;
     } else if (this.props.type === 'user-portfolio') {
       header = 'Your Portfolio';
     }
@@ -64,10 +66,26 @@ class DoughnutChart extends Component {
       || (this.props.type === 'user-portfolio' && this.props.userPortfolio !== null);
     if (renderChart) {
       const data = this.getChartData();
+      console.log('data', data);
+      const chartData = this.formatChartDataSet(data);
       return ( 
         <div className="small-auto medium-auto large-4 cell"> 
           <h5 className="center">{this.getHeader()}</h5>
-          <Doughnut data={data} options={{ cutoutPercentage: 40 }} /> 
+          <Doughnut data={chartData} options={{ cutoutPercentage: 40 }} /> 
+          <div className="grid-x grid-padding-x">
+          
+            <div className="center" style={ { margin: 'auto' }}>
+              {data.labels.map((value, index) => {
+                const style = { 'backgroundColor': `${data.colors[index]}` };
+                return (
+                  <span className="legend-main" key={value}>
+                   <div className="legend-color" style={style}></div>
+                    <span className="legend-data"> - {value}</span>
+                  </span>
+                );
+              })}
+            </div>    
+          </div>
         </div> );
     }
     return null;
