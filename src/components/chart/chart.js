@@ -78,9 +78,9 @@ class DoughnutChart extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ 
-  selectedLevel: state.selectedLevel, 
-  types: state.types ,
-  userPortfolio: state.userPortfolio
-});
+const mapStateToProps = (state) => {
+  const { selectedLevel, types, userPortfolio } = state;
+  return { selectedLevel, types, userPortfolio };
+};
+
 export default connect(mapStateToProps)(DoughnutChart);

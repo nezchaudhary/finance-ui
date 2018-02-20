@@ -24,7 +24,11 @@ class App extends Component {
           <span className="bright-color">Investi</span>
           <span className="plan-color">Me</span>
         </h2>
-        <Header type="main"/>
+        <Header 
+          type="main" 
+          header="Compare your investment portfolio with a ideal investment portfolio for risk levels
+            between 1-10"
+        />
         <RiskLevels />
         <div className="grid-x grid-padding-x">
           <div className="small-12 medium-6 large-6 cell chart">
@@ -34,9 +38,7 @@ class App extends Component {
             <UserPortfolio />
           </div>
         </div>
-        <div className="grid-x center">
           <ComparePortfolios />
-        </div>
       </div>
     );
   }

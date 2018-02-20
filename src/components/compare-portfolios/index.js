@@ -5,6 +5,8 @@ import { calculateHowToMoveInvestments } from '../../calculate-portfolio-shift/i
 import getPortfolioSize from '../../utility/portfolio-size.js';
 import RiskPortfolios from '../../mock-data/risk-level-portfolios';
 import formatDollarString from '../../utility/format-dollar-string';
+import Header from '../headers/header';
+import './compare-portfolio.css';
 
 class ComparePortfolios extends Component {
   render() {
@@ -15,17 +17,13 @@ class ComparePortfolios extends Component {
       const changes = calculateHowToMoveInvestments(this.props.portfolio, RiskPortfolios[this.props.riskLevel]);
       if (changes.length) {
         return (
-          <div className="auto cell">
-            <h6>
-              To match your portfolio to the risk portfolio, you need to..
-            </h6>
-            <div>
-              {changes.map((change, i) => (<div className="auto cell" key={i}>{`Move $${formatDollarString(change.value)} from ${change.from} to ${change.to}`}</div>))}
-            </div>
+          <div className="center">
+            <Header type="compare" class="compare-header" header="To match your portfolio to the risk portfolio, you need to.." />
+            {changes.map((change, i) => (<div className="auto cell" key={i}>{`Move $${formatDollarString(change.value)} from ${change.from} to ${change.to}`}</div>))}
           </div>
         );
       } else {
-        return <div className="auto cell">Your portfolio is match to your risk level, you do not need to make any changes</div>
+        return <Header type="compare" class="compare-header" header="Your portfolio is match to your risk level, you do not need to make any changes" />
       }
     }
     return null;
