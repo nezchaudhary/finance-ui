@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import PortfolioForm from './portfolio-form.js';
 import UserDoughnutChart from '../chart/chart';
-import './custom-portfolio.css';
+import './user-portfolio-form.css';
 
 class CustomPortfolio extends Component {
   constructor() {

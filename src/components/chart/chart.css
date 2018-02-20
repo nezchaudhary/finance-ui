@@ -1,18 +1,44 @@
+.chart-header {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .legend-main {
   display: inline-block;
-  margin: 0px 8px 0px 0px;
+  padding-right: 10px;
+  /* margin: 0px 8px 0px 0px; */
 }
 
 .legend-color {
-  display: inline-block;
+  display: inherit;
   width: 40px;
   height: 15px;
-  margin: 5px 0px 0px 8px;
+  /* margin: 5px 0px 0px 8px; */
 }
 
 
 .legend-data {
-  margin: 0px 0px 0px 3px;
+  display: inherit;
+  position: relative;
+  top: -2.5px;
+  padding-left: 3px;
+  /* margin: 0px 0px 0px 3px; */
   font-size: 80%;
   color: #737373;
+
+}
+
+@media(max-width: 40em) {
+  .chart-header {
+    font-size: 14px;
+  }
+
+  .legend-color {
+    width: 28px;
+    height: 10px;
+  }
+
+  .legend-data {
+    top: -2.2px;
+  }
 }

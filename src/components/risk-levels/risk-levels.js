@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import LevelDetail from './risk-level-detail';
-import { updateRiskLevel } from '../../actions/update-risk-level';
 import { bindActionCreators } from 'redux';
 
+import { updateRiskLevel } from '../../actions/update-risk-level';
 import Header from '../headers/header';
+
 import './risk-levels.css';
 
-class Levels extends Component {
+class RiskLevels extends Component {
 
   updateSelectedLevel(e) {
     this.props.updateLevel(e.target.value);
+  }
+
+  componentDidMount() {
+    this.props.updateLevel('1');
   }
 
   render() {
@@ -37,7 +41,11 @@ class Levels extends Component {
           </div>
         </div>
         <div className="risk-level-header">
-          <Header type="risk-level" header={`Risk Level: ${this.props.selectedLevel || 0}`} />
+          <Header 
+            type="risk-level" 
+            header={`Risk Level: ${this.props.selectedLevel || 0}`}
+            class="risk-level-header"
+          />
         </div>
       </div>
     )
@@ -48,5 +56,5 @@ class Levels extends Component {
 
 const mapStateToProps = (state) => ({ selectedLevel: state.selectedLevel });
 const mapDispatchToProps = (dispatch) => bindActionCreators({ updateLevel: updateRiskLevel }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(Levels);
+export default connect(mapStateToProps, mapDispatchToProps)(RiskLevels);
       

@@ -12,11 +12,11 @@ class UserPortfolioForm extends Component {
     super();
     this.handleInput = this.handleInput.bind(this);
     this.state = {
-      cash: '',
-      bonds: '',
-      'mutual-funds': '',
-      gold: '',
-      stocks: ''
+      cash: '$',
+      bonds: '$',
+      'mutual-funds': '$',
+      gold: '$',
+      stocks: '$'
     }
   }
 
@@ -28,7 +28,9 @@ class UserPortfolioForm extends Component {
   handleSubmit() {
     const payload = {};
     for (let type in this.state) {
-      let amount = Number(this.state[type])
+      let amount = (this.state[type]).match(/\d+/);
+      amount = amount ? amount[0]: 0;
+      amount = Number(amount);
       payload[type] = amount > 0 ? amount : 0;
     }
 
@@ -54,7 +56,7 @@ class UserPortfolioForm extends Component {
   render() {
     return (
       <div>
-        <h5 className="form-heading center">Please tell us your investments in USD</h5>
+        <div className="form-header center">Please tell us your investments in USD</div>
         {this.renderInputs()}
         <div className="grid-x">
           <button className="small-6 medium-6 cell button expand form-button" type="submit" onClick={this.handleSubmit.bind(this)}>Show My Portfolio</button>

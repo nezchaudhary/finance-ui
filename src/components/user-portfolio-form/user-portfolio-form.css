@@ -1,15 +1,12 @@
 .form-label {
+  /* padding-top: 0.5em; */
   font-weight: bold;
-  font-size: 15px;
+  font-size: 1em;
   color: #5195cc;
 }
 
 .button {
   background-color: #5195cc;
-}
-
-h5 {
-  font-weight: bold;
 }
 
 .change-portfolio {
@@ -18,9 +15,12 @@ h5 {
 
 .form-input {
   color: #5195cc;
+  height: 1.8em;
 }
 
-.form-heading {
+.form-header {
+  font-size: 1em;
+  font-weight: bold;
   margin-bottom: 1.5%;
 }
 
@@ -84,4 +84,18 @@ h5 {
   .change-button {
     left: 33.2%;
   }
+}
+
+@media(max-width: 40em) {
+  .form-label {
+    padding-top: -2px;
+    font-size: 0.95em;
+  }
+
+  .form-input {
+    height: 1.5em;
+    font-size: 1em;
+    padding-left: 0.2em;;
+  }
+
 }

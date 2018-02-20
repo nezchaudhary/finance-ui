@@ -6,33 +6,29 @@ h4 {
   font-weight: bold;
 }
 
-.range-label {
-  color: #5195cc;
-  font-weight: bold;
-  font-size: 18px;
-  text-align:center;
-}
+
 .risk-level-header {
-  margin-top: -28px;
+  margin-top: -18px;
+  font-weight: bold;
 }
 
 .risk-type {
   font-weight: bold;
-  font-size: 18px;
-  margin-top: 14px;
+  font-size: 1.05em;
+  margin-top: 0.75em;
 }
 
 .low {
   padding-right: 2px;
 }
 
-.risk-type > div {
-  font-weight: normal;
-  font-size: 14px;
-}
-
 .high {
   padding-left: 2px;
+}
+
+.risk-type > div {
+  font-weight: normal;
+  font-size: 0.75em;
 }
 
 .slider {
@@ -63,4 +59,29 @@ h4 {
     border-radius: 50%;
     background: #5195cc;
     cursor: pointer;
+}
+
+@media(max-width: 40em) {
+  .slider {
+    height: 12px;
+    border-radius: 5px;
+  }
+
+  .slider::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+  }
+
+  .risk-type {
+    font-size: 0.9em;
+  }
+
+  .risk-type > div {
+    font-size: 1em;
+  }
+
+  .risk-level-header {
+    font-size: 0.95em;
+  }
+
 }

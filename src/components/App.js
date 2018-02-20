@@ -3,13 +3,20 @@ import { connect } from 'react-redux';
 
 import RiskLevels from './risk-levels/risk-levels';
 import DoughnutChart from './chart/chart';
-import CustomPortfolio from './custom-portfolio/index';
+import UserPortfolio from './user-portfolio-form/index';
 import ComparePortfolios from './compare-portfolios/index';
 import Header from './headers/header';
 
 import './App.css';
 
 class App extends Component {
+  // getChartClasses() {
+  //   if (this.props.userPortfolio) {
+  //     return "small-12 medium-6 large-6 cell chart";
+  //   }
+  //   return "small-12 medium-8 medium-offset-2 large-8 large-offset-2 cell chart"
+  // }
+
   render() {
     return (
       <div>
@@ -20,11 +27,11 @@ class App extends Component {
         <Header type="main"/>
         <RiskLevels />
         <div className="grid-x grid-padding-x">
-          <div className="small-auto medium-auto cell chart custom">
+          <div className="small-12 medium-6 large-6 cell chart">
             <DoughnutChart type="risk-level"/>
           </div>
-          <div className="small-auto medium-auto cell chart custom">
-            <CustomPortfolio />
+          <div className="small-12 medium-6 large-6 cell chart">
+            <UserPortfolio />
           </div>
         </div>
         <div className="grid-x center">
@@ -35,5 +42,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ selectedLevel: state.selectedLevel, userPortFolio: state.userPortfolio });
+const mapStateToProps = (state) => ({ selectedLevel: state.selectedLevel, userPortfolio: state.userPortfolio });
 export default connect(mapStateToProps)(App);

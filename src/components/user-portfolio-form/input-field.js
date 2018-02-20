@@ -9,8 +9,8 @@ class InputField extends Component {
   render() {
     return (
       <div className="grid-x">
-        <label className="small-2 small-offset-2 medium-2 medium-offset-2 large-2 large-offset-2 cell form-label">{`${this.parseField()}:`}</label>
-          <input className="small-6 medium-6 large-6 cell form-input" type="text" name={this.props.name} placeholder="$0" value={this.props.value} onChange={this.props.change} />
+        <label className="small-4 small-offset-1 medium-3 medium-offset-1 large-3 large-offset-1 cell form-label">{`${this.parseField()}:`}</label>
+        <input className="small-6 medium-6 large-6 cell form-input" type="text" name={this.props.name} placeholder="$0" value={this.props.value} onChange={this.props.change} />
       </div>     
     )
   }

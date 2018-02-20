@@ -5,12 +5,10 @@ class Header extends Component {
     let header;
     if (this.props.type === 'main') {
       header = <div>Compare your investment portfolio with a ideal investment portfolio for risk levels
-      between 1-10. Select your risk tolerance..
+      between 1-10
       </div>
     } else if (this.props.type === 'risk-level') {
-      header = <h6>{this.props.header}</h6>
-    } else if (this.props.type == 'risk-level-type') {
-      header = <div>{this.props.header}</div>
+      header = <div className={this.props.class}>{this.props.header}</div>
     }
     return (
       <div className="grid-x grid-padding-x">

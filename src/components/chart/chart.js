@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import RiskLevelPortfolios from '../../mock-data/risk-level-portfolios';
 import getPortfolioSize from '../../utility/portfolio-size.js';
 import formatDollarString from '../../utility/format-dollar-string';
-import ChartLedger from './chart-ledger';
+import ChartLegend from './chart-legend';
 
 import './chart.css';
 
@@ -66,26 +66,12 @@ class DoughnutChart extends Component {
       || (this.props.type === 'user-portfolio' && this.props.userPortfolio !== null);
     if (renderChart) {
       const data = this.getChartData();
-      console.log('data', data);
       const chartData = this.formatChartDataSet(data);
       return ( 
         <div className="small-auto medium-auto large-4 cell"> 
-          <h5 className="center">{this.getHeader()}</h5>
+          <div className="chart-header center">{this.getHeader()}</div>
           <Doughnut data={chartData} options={{ cutoutPercentage: 40, legend: { display: false } }} /> 
-          <div className="grid-x grid-padding-x">
-          
-            <div className="center" style={ { margin: 'auto' }}>
-              {data.labels.map((value, index) => {
-                const style = { 'backgroundColor': `${data.colors[index]}` };
-                return (
-                  <span className="legend-main" key={value}>
-                   <div className="legend-color" style={style}></div>
-                    <span className="legend-data">{value}</span>
-                  </span>
-                );
-              })}
-            </div>    
-          </div>
+          <ChartLegend data={data} />
         </div> );
     }
     return null;
