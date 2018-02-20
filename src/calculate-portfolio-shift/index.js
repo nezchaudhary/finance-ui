@@ -1,6 +1,6 @@
-
-import formatDollarString from '../utility/format-dollar-string';
 import getPortfolioSize from '../utility/portfolio-size.js';
+import formatChangeData from '../utility/format-change-data.js';
+
 const types = ['Cash', 'Bonds', 'Mutual Funds', 'Gold', 'Stocks']; // Array of different types of investments
 
 /*
@@ -99,15 +99,15 @@ const calculateHowToMoveInvestments = (user, ideal) => {
     let maxDecrease = decrease[decrease.length - 1];
     let maxIncrease = increase[increase.length - 1];
     if (maxIncrease.value - Math.abs(maxDecrease.value) > 0) { // max increase is larger than max decrease
-      investmentsToMove.push(`Move $${formatDollarString(Math.abs(maxDecrease.value))} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(formatChangeData(maxDecrease.name, maxIncrease.name, Math.abs(maxDecrease.value)));
       increase[increase.length - 1].value -= Math.abs(maxDecrease.value);
       decrease.pop();
     } else if (maxIncrease.value - Math.abs(maxDecrease.value) < 0) { // max decrease is larger than max increase
-      investmentsToMove.push(`Move $${formatDollarString(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(formatChangeData(maxDecrease.name, maxIncrease.name, maxIncrease.value));
       decrease[decrease.length - 1].value += maxIncrease.value;
       increase.pop();
     } else { // decrease and increase are of same size
-      investmentsToMove.push(`Move $${formatDollarString(maxIncrease.value)} from ${maxDecrease.name} to ${maxIncrease.name}`);
+      investmentsToMove.push(formatChangeData(maxDecrease.name, maxIncrease.name, maxIncrease.value));
       increase.pop();
       decrease.pop();
     }
