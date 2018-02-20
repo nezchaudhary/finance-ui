@@ -17,8 +17,8 @@ class DoughnutChart extends Component {
       datasets: [{
         data: data.values,
         backgroundColor: data.colors
-      }]
-      // labels: data.labels
+      }],
+      labels: data.labels
     };
   }
 
@@ -71,7 +71,7 @@ class DoughnutChart extends Component {
       return ( 
         <div className="small-auto medium-auto large-4 cell"> 
           <h5 className="center">{this.getHeader()}</h5>
-          <Doughnut data={chartData} options={{ cutoutPercentage: 40 }} /> 
+          <Doughnut data={chartData} options={{ cutoutPercentage: 40, legend: { display: false } }} /> 
           <div className="grid-x grid-padding-x">
           
             <div className="center" style={ { margin: 'auto' }}>
@@ -80,7 +80,7 @@ class DoughnutChart extends Component {
                 return (
                   <span className="legend-main" key={value}>
                    <div className="legend-color" style={style}></div>
-                    <span className="legend-data"> - {value}</span>
+                    <span className="legend-data">{value}</span>
                   </span>
                 );
               })}

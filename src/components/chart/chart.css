@@ -1,5 +1,6 @@
 .legend-main {
   display: inline-block;
+  margin: 0px 8px 0px 0px;
 }
 
 .legend-color {
@@ -13,4 +14,5 @@
 .legend-data {
   margin: 0px 0px 0px 3px;
   font-size: 80%;
+  color: #737373;
 }
