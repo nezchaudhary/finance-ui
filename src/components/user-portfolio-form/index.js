@@ -44,7 +44,7 @@ class CustomPortfolio extends Component {
         <div className="grid-x">
           <Button 
             classes="small-6 medium-4 large-4 clear button change-button" 
-            text="Change portfolio"
+            text="Change Portfolio"
             click={this.handleClickToRenderForm}
           />
         </div>
