@@ -52,11 +52,11 @@ About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as
 
 ### Changes Made
 
-- Change radio butttons to slider
+- Change radio buttons to slider
 - Render application information under logo
 - Fix mobile orientation and layout
 - Re-use chart component to render all charts
-- Create Header component to manage all Headings
+- Create Header component to manage all headings
 - Create button component to manage all buttons
 - Move legend outside of chart box to maintain chart size consistency
 - Risk Portfolio adjusts to reflect risk portfolio customized for user, if provided
