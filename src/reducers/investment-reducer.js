@@ -1,9 +1,16 @@
 export default function () {
   return [
-    { name: 'Cash', color: '#66ffd9' },
-    { name: 'Bonds', color: '#80bfff' },
-    { name: 'Mutual Funds', color: '#9999ff' },
-    { name: 'Gold', color: '#ffb366' },
-    { name: 'Stocks', color: '#ff6666' }
+    { name: 'Cash', color: '#b3ffe6' },
+    { name: 'Bonds', color: '#99ccff' },
+    { name: 'Mutual Funds', color: '#ccccff' },
+    { name: 'Gold', color: '#ffb380' },
+    { name: 'Stocks', color: '#ff9999' }
   ];
 };
+
+//#ff6666
+//'#ffb366'
+//#9999ff'
+//'#80bfff'
+//'#66ffd9'
+//#e5ccff'

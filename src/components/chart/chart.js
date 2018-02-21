@@ -94,7 +94,7 @@ class DoughnutChart extends Component {
       return ( 
         <div className="small-auto medium-auto large-4 cell"> 
           <div className="chart-header center">{this.getHeader(total)}</div>
-          <Doughnut data={chartData} options={{ cutoutPercentage: 40, legend: { display: false } }} /> 
+          <Doughnut data={chartData} options={ { cutoutPercentage: 40, legend: { display: false } } } /> 
           <ChartLegend data={data} />
         </div> );
     }
