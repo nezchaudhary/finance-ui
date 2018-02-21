@@ -6,6 +6,7 @@ import RiskLevelPortfolios from '../../mock-data/risk-level-portfolios';
 import getPortfolioSize from '../../utility/portfolio-size.js';
 import formatDollarString from '../../utility/format-dollar-string';
 import ChartLegend from './chart-legend';
+import { calculateHowToMoveInvestments } from '../../calculate-portfolio-shift';
 
 import './chart.css';
 
@@ -36,40 +37,63 @@ class DoughnutChart extends Component {
     }, { labels: [], colors: [], values: [] });
   }
 
-  getChartData() {
+  getChartData(riskPortfolio, riskValues, userPortfolioValues, total) {
     let chartData;
     if (this.props.type === 'risk-level') {
-      const values = Object.values(RiskLevelPortfolios[this.props.selectedLevel]);
-      chartData = this.createChartDataSet(values);
-      
-    } else if (this.props.type === 'user-portfolio') {
-      const values = Object.values(this.props.userPortfolio);
-      const total = getPortfolioSize(this.props.userPortfolio);
-      const percentages = values.map(value => Math.round((value / total) * 100));
-      chartData = this.createChartDataSet(percentages, values);
+      chartData = this.createChartDataSet(riskValues);
+    } else {
+      if (this.props.type === 'user-risk-portfolio') {
+        if (!total) {
+          chartData = this.createChartDataSet(riskValues);
+        } else {
+          const changes = calculateHowToMoveInvestments(this.props.userPortfolio, riskPortfolio);
+          const portfolio = this.props.types.reduce((result, type, i) => {
+            result[type.name] = userPortfolioValues[i];
+            return result;
+          }, {});
+          changes.map(change => {
+            portfolio[change.from] -= change.value;
+            portfolio[change.to] += change.value;
+          });
+          const adjustedPortfolio = Object.values(portfolio);
+          const percentages = adjustedPortfolio.map(value => Math.round((value / total) * 100));
+          chartData = this.createChartDataSet(percentages, adjustedPortfolio);
+        } 
+      } else if (this.props.type === 'user-portfolio') {
+        const percentages = userPortfolioValues.map(value => Math.round((value / total) * 100));
+        chartData = this.createChartDataSet(percentages, userPortfolioValues);
+      }
     }
     return chartData;
   }
 
-  getHeader() {
+  getHeader(total) {
     let header;
     if (this.props.type === 'risk-level') {
       header = `Risk Portfolio`;
     } else if (this.props.type === 'user-portfolio') {
-      header = 'Your Portfolio';
+      header = 'Your Current Portfolio';
+    } else if (this.props.type === 'user-risk-portfolio' && total) {
+      header = `Ideal Risk ${this.props.selectedLevel} Portfolio for you`;
+    } else if (this.props.type === 'user-risk-portfolio' && !total) {
+      header = 'Risk Portfolio';
     }
     return header;
   }
 
   render() {
     let renderChart = (this.props.type === 'risk-level' && this.props.selectedLevel > 0) 
-      || (this.props.type === 'user-portfolio' && this.props.userPortfolio !== null);
+      || ((this.props.type === 'user-portfolio' || this.props.type === 'user-risk-portfolio') && this.props.userPortfolio !== null);
     if (renderChart) {
-      const data = this.getChartData();
+      const total = this.props.userPortfolio ? getPortfolioSize(this.props.userPortfolio) : 0;
+      const riskPortfolio = RiskLevelPortfolios[this.props.selectedLevel]
+      const riskValues = Object.values(RiskLevelPortfolios[this.props.selectedLevel]);
+      const userPortfolioValues = this.props.userPortfolio ? Object.values(this.props.userPortfolio) : null;
+      const data = this.getChartData(riskPortfolio, riskValues, userPortfolioValues, total);
       const chartData = this.formatChartDataSet(data);
       return ( 
         <div className="small-auto medium-auto large-4 cell"> 
-          <div className="chart-header center">{this.getHeader()}</div>
+          <div className="chart-header center">{this.getHeader(total)}</div>
           <Doughnut data={chartData} options={{ cutoutPercentage: 40, legend: { display: false } }} /> 
           <ChartLegend data={data} />
         </div> );
