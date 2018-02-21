@@ -5,7 +5,7 @@ import { calculateHowToMoveInvestments } from '../../calculate-portfolio-shift/i
 import getPortfolioSize from '../../utility/portfolio-size.js';
 import RiskPortfolios from '../../mock-data/risk-level-portfolios';
 import formatDollarString from '../../utility/format-dollar-string';
-import Header from '../headers/header';
+import Header from '../headers';
 import './compare-portfolio.css';
 
 class ComparePortfolios extends Component {
@@ -18,6 +18,7 @@ class ComparePortfolios extends Component {
       if (changes.length) {
         return (
           <div className="center portfolio-change-container">
+            <Header type="portfolio-size" class="portfolio-size text-bold" header={`Your portfolio size: $${total}`} />
             <Header type="compare" class="portfolio-change-header" header="To match your portfolio to the risk portfolio, you need to.." />
             {changes.map((change, i) => (<div className="auto cell" key={i}>{`Move $${formatDollarString(change.value)} from ${change.from} to ${change.to}`}</div>))}
           </div>
