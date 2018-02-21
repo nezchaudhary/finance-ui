@@ -53,12 +53,12 @@ About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as
 ### Changes Made
 
 - Change radio butttons to slider
-- Add context for what the application does
-- Fix mobile orientation and layout of application
-- Re-Use chart component to render all charts
+- Render application information under logo
+- Fix mobile orientation and layout
+- Re-use chart component to render all charts
 - Create Header component to manage all Headings
-- Move legend data outside of chart component to maintain chart size consistency
-- Create button component to import in other components
-- Risk Portfolio adjusts to reflect user portfolio if provided
+- Create button component to manage all buttons
+- Move legend outside of chart box to maintain chart size consistency
+- Risk Portfolio adjusts to reflect risk portfolio customized for user, if provided
 - Render portfolio size when submitted
-- Add dollar sign in input field
+- Add persistent dollar sign in input field 
