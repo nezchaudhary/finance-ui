@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import RiskLevels from './risk-levels/risk-levels';
-import DoughnutChart from './chart/chart';
+import DoughnutChart from './charts/doughnut-chart/';
 import UserPortfolio from './user-portfolio-form/index';
 import ComparePortfolios from './compare-portfolios/index';
 import Header from './headers';

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PortfolioForm from './portfolio-form.js';
-import UserDoughnutChart from '../chart/chart';
+import UserDoughnutChart from '../charts/doughnut-chart/';
 import Button from '../button';
 import './user-portfolio-form.css';
 
