@@ -10,3 +10,13 @@
 .portfolio-size {
   font-size: 1.2em;
 }
+
+/* @media(max-width: 40em) {
+  .portfolio-size {
+    font-size: 1.1em;
+  }
+
+  .portfolio-change-container {
+    font-size: 0.9em;
+  }
+} */
