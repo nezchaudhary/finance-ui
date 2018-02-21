@@ -5,18 +5,11 @@ import RiskLevels from './risk-levels/risk-levels';
 import DoughnutChart from './chart/chart';
 import UserPortfolio from './user-portfolio-form/index';
 import ComparePortfolios from './compare-portfolios/index';
-import Header from './headers/header';
+import Header from './headers';
 
 import './App.css';
 
 class App extends Component {
-  // getChartClasses() {
-  //   if (this.props.userPortfolio) {
-  //     return "small-12 medium-6 large-6 cell chart";
-  //   }
-  //   return "small-12 medium-8 medium-offset-2 large-8 large-offset-2 cell chart"
-  // }
-
   render() {
     return (
       <div>
@@ -32,7 +25,7 @@ class App extends Component {
         <RiskLevels />
         <div className="grid-x grid-padding-x">
           <div className="small-12 medium-6 large-6 cell chart">
-            <DoughnutChart type="risk-level"/>
+            <DoughnutChart type={this.props.userPortfolio ? "user-risk-portfolio" : "risk-level"} />
           </div>
           <div className="small-12 medium-6 large-6 cell chart">
             <UserPortfolio />
