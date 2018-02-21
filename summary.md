@@ -59,4 +59,6 @@ About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as
 - Create Header component to manage all Headings
 - Move legend data outside of chart component to maintain chart size consistency
 - Create button component to import in other components
-
+- Risk Portfolio adjusts to reflect user portfolio if provided
+- Render portfolio size when submitted
+- Add dollar sign in input field
