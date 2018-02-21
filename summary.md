@@ -56,9 +56,10 @@ About 8.5 hours completing the project excluding CSS and about 4 hours on CSS as
 - Render application information under logo
 - Fix mobile orientation and layout
 - Re-use chart component to render all charts
-- Create Header component to manage all headings
+- Create header component to manage all headings
 - Create button component to manage all buttons
 - Move legend outside of chart box to maintain chart size consistency
 - Risk Portfolio adjusts to reflect risk portfolio customized for user, if provided
-- Render portfolio size when submitted
+- Render total value of portfolio submitted
 - Add persistent dollar sign in input field 
+- Change chart data color from yellow color to purple
