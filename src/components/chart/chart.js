@@ -70,13 +70,13 @@ class DoughnutChart extends Component {
   getHeader(total) {
     let header;
     if (this.props.type === 'risk-level') {
-      header = `Risk Portfolio`;
+      header = `Risk ${this.props.selectedLevel} Portfolio`;
     } else if (this.props.type === 'user-portfolio') {
       header = 'Your Current Portfolio';
     } else if (this.props.type === 'user-risk-portfolio' && total) {
-      header = `Ideal Risk ${this.props.selectedLevel} Portfolio for you`;
+      header = `Your Ideal Level ${this.props.selectedLevel} Portfolio`;
     } else if (this.props.type === 'user-risk-portfolio' && !total) {
-      header = 'Risk Portfolio';
+      header = `Risk ${this.props.selectedLevel} Portfolio`;
     }
     return header;
   }
