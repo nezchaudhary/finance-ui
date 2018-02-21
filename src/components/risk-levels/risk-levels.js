@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { updateRiskLevel } from '../../actions/update-risk-level';
-import Header from '../headers/header';
+import Header from '../headers';
 
 import './risk-levels.css';
 
