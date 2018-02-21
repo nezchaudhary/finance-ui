@@ -22,15 +22,16 @@ class UserPortfolioForm extends Component {
 
   handleInput(e) {
     const input = e.target.name;
-    this.setState({ [input]: e.target.value })
+    let value = e.target.value;
+    value = value[0] === '$' ? value.slice(1) : value;
+    this.setState({ [input]: `$${value}`});
   }
   
   handleSubmit() {
     const payload = {};
     for (let type in this.state) {
-      let amount = (this.state[type]).match(/\d+/);
-      amount = amount ? amount[0]: 0;
-      amount = Number(amount);
+      let amount = (this.state[type]).slice(1);
+      amount = Number(amount) || 0;
       payload[type] = amount > 0 ? amount : 0;
     }
 
