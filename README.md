@@ -13,7 +13,7 @@ Read the application and execution summary [here](https://github.com/nehacp/fina
 
 ### Video
 
-Watch a demo of the app [here](https://youtu.be/Ujybj5rCZuI)
+Watch a demo of the app [here](https://youtu.be/OUawVmxd3mo)
 
 ### Instructions
 
