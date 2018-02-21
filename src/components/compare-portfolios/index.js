@@ -18,13 +18,13 @@ class ComparePortfolios extends Component {
       if (changes.length) {
         return (
           <div className="center portfolio-change-container">
-            <Header type="portfolio-size" class="portfolio-size text-bold" header={`Your portfolio size: $${total}`} />
+            <Header type="portfolio-size" class="portfolio-size text-bold" header={`Your portfolio size: $${formatDollarString(total)}`} />
             <Header type="compare" class="portfolio-change-header" header="To match your portfolio to the risk portfolio, you need to.." />
             {changes.map((change, i) => (<div className="auto cell" key={i}>{`Move $${formatDollarString(change.value)} from ${change.from} to ${change.to}`}</div>))}
           </div>
         );
       } else {
-        return <Header type="compare" class="compare-header" header="Your portfolio is match to your risk level, you do not need to make any changes" />
+        return <Header type="compare" class="portfolio-change-header" header="Your portfolio is match to your risk level, you do not need to make any changes" />
       }
     }
     return null;
